@@ -1,0 +1,47 @@
+.path {
+     .block();
+     padding-top: 32px;
+     
+     .container-fluid {
+          min-height: 40px;
+     }
+     
+     &-list {
+          .inline_block();
+          
+          li {
+               .inline_block();
+               margin: 0px 7px 7px 0px;
+               
+               &:before {
+                    .inline_block();
+                    .size(5px, 8px);
+                    content: '';
+                    background-image: url('../img/sprites.png');
+                    background-position: -400px 0px;
+                    background-repeat: no-repeat;
+                    margin: 2px 10px 0px 0px;
+               }
+               &:last-child {
+                    margin-right: 0px;
+               }
+          }
+          a {
+               .inline_block();
+               text-decoration: none;
+               font-size: 12px;
+               text-transform: uppercase;
+               text-decoration: underline;
+               color: #757575;
+               
+               &:hover {
+                    text-decoration: none;
+               }
+          }
+     }
+     
+     .btn-print {
+          float: right;
+          margin-right: 40px;
+     }
+}

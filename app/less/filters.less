@@ -1,0 +1,96 @@
+.filters {
+     .block();
+     margin-top: 47px;
+     padding-right: 50px;
+     
+     &__title {
+          .block();
+          color: #4d4d4d;
+          font-weight: 700;
+          text-transform: uppercase;
+          margin-left: 8px;
+          letter-spacing: 1px;
+     }
+     
+     &__cont {
+          .block();
+          margin-top: 24px;
+     }
+     
+     &__box {
+          .block();
+          //margin-bottom: 15px;
+          
+          &:last-child {
+               margin-bottom: 0px;
+          }
+          > span {
+               .inline_block();
+               color: #4d4d4d;
+               font-size: 13px;
+               text-transform: uppercase;
+               padding-left: 22px;
+               margin-left: 8px;
+               cursor: pointer;
+               margin-bottom: 20px;
+               
+               &:before {
+                    .position(absolute, 0px, 3px, 13px, 8px);
+                    .transition_Own(transform, 0.25s);
+                    content: '';
+                    background-image: url(../img/sprites.png);
+                    background-position: -100px 0px;
+                    background-repeat: no-repeat;
+               }
+          }
+          ul {
+               .block();
+               padding: 0px 0px 10px 30px;
+               display: none;
+          }
+          li {
+               .block();
+               color: #787878;
+               font-size: 13px;
+               padding-bottom: 12px;
+               line-height: 16px;
+               
+               a {
+                    .inline_block();
+                    color: inherit;
+                    font-size: inherit;
+                    line-height: inherit;
+                    text-decoration: none;
+                    
+                    &:hover {
+                         text-decoration: underline;
+                    }
+               }
+               span {
+                    .inline();
+                    color: #787878;
+                    font-size: 13px;
+                    line-height: 16px;
+               }
+               b {
+                    .inline();
+                    color: #a3a3a3;
+                    font-size: 11px;
+                    font-weight: 300;
+                    line-height: inherit;
+                    top: 1px;
+                    margin-left: 5px;
+               }
+          }
+          
+          &.active {
+               
+               > span:before {
+                    .rotate(180deg);
+               }
+               ul {
+                    
+               }
+          }
+     }
+}

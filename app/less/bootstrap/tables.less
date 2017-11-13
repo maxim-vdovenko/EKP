@@ -1,0 +1,310 @@
+//
+// Tables
+// --------------------------------------------------
+
+
+table {
+     background-color: #fff;
+}
+caption {
+     padding-top: @table-cell-padding;
+     padding-bottom: @table-cell-padding;
+     color: @text-muted;
+     text-align: left;
+}
+th {
+     text-align: left;
+}
+
+
+
+.table {
+     position: relative;
+     display: table;
+     width: 100%;
+     border-collapse: collapse;
+     border: 4px solid @table_color_default;
+     border-top: none;
+     margin-bottom: 6px;
+     
+     td {
+          vertical-align: middle;
+          padding-left: 13px;
+          padding-right: 13px; 
+     }
+    
+     thead td {
+          height: 43px;
+          background-color: @table_color_default;
+          padding-top: 4px;
+          padding-bottom: 4px;
+          
+          b {
+               .inline_block(top, center);
+               .size(35px, 35px);
+               .radius(100px);
+               margin-right: 15px;
+               padding-top: 6px;
+               background-color: #fff;
+               color: #000;
+               font-size: 25px;
+               font-weight: 700;
+          }
+          span {
+               .inline_block();
+               color: #fff;
+               text-transform: uppercase;
+               font-size: 16px;
+               font-weight: 500;
+               padding-top: 10px;
+          }
+     }
+     tbody {
+          tr:nth-child(2n + 0) td {
+               background-color: #f1f1f1;
+          }
+          td {
+               height: 49px;               
+               padding: 15px 15px;
+               
+               &:nth-child(1) {
+                    width: 35%;
+                    color: #4d4d4d;
+                    font-size: 14px;
+                    font-weight: 500;
+                    line-height: 17px;
+               }
+               &:nth-child(2) {
+                    width: 12%;
+                    color: #787878;
+                    font-size: 14px;
+               }
+               &:nth-child(3) {
+                    width: 12%;
+                    color: #787878;
+                    font-size: 17px;
+                    font-weight: 700;
+                    
+                    .rub {
+                         line-height: 14px;
+                    }
+               }
+               &:nth-child(4) {
+                    width: 15%;
+                    color: #787878;
+                    font-size: 14px;
+                    font-weight: 300;
+                    
+                    .rub {
+                         line-height: 12px;
+                    }
+               }
+               &:nth-child(5) {
+                    width: 15%;
+                    color: #787878;
+                    font-size: 14px;
+                    font-weight: 300;
+               }
+          }
+     }
+     
+     .noPrice {
+          background-image: url(../img/table-noPrice.png);
+          
+     }
+     
+     .create_color(); 
+}
+
+
+
+.create_color(@index: 1) when (@index <= length(@table_color)) {
+
+     @color: extract(@table_color, @index);
+
+     &--color-@{index} {
+          border-color: @color;
+
+          thead td {
+               background-color: @color;
+
+               b {
+                    color: @color;
+               }
+          }
+     }
+
+     .create_color(@index + 1);
+}
+
+
+
+
+
+
+// Condensed table w/ half padding
+.table-condensed {
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        padding: @table-condensed-cell-padding;
+      }
+    }
+  }
+}
+
+
+// Bordered version
+//
+// Add borders all around the table and between all the columns.
+
+.table-bordered {
+  border: 1px solid @table-border-color;
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        border: 1px solid @table-border-color;
+      }
+    }
+  }
+  > thead > tr {
+    > th,
+    > td {
+      border-bottom-width: 2px;
+    }
+  }
+}
+
+
+// Zebra-striping
+//
+// Default zebra-stripe styles (alternating gray and transparent backgrounds)
+
+.table-striped {
+  > tbody > tr:nth-of-type(odd) {
+    background-color: @table-bg-accent;
+  }
+}
+
+
+// Hover effect
+//
+// Placed here since it has to come after the potential zebra striping
+
+.table-hover {
+  > tbody > tr:hover {
+    background-color: @table-bg-hover;
+  }
+}
+
+
+// Table cell sizing
+//
+// Reset default table behavior
+
+table col[class*="col-"] {
+  position: static; // Prevent border hiding in Firefox and IE9-11 (see https://github.com/twbs/bootstrap/issues/11623)
+  float: none;
+  display: table-column;
+}
+table {
+  td,
+  th {
+    &[class*="col-"] {
+      position: static; // Prevent border hiding in Firefox and IE9-11 (see https://github.com/twbs/bootstrap/issues/11623)
+      float: none;
+      display: table-cell;
+    }
+  }
+}
+
+
+// Table backgrounds
+//
+// Exact selectors below required to override `.table-striped` and prevent
+// inheritance to nested tables.
+
+// Generate the contextual variants
+.table-row-variant(active; @table-bg-active);
+.table-row-variant(success; @state-success-bg);
+.table-row-variant(info; @state-info-bg);
+.table-row-variant(warning; @state-warning-bg);
+.table-row-variant(danger; @state-danger-bg);
+
+
+// Responsive tables
+//
+// Wrap your tables in `.table-responsive` and we'll make them mobile friendly
+// by enabling horizontal scrolling. Only applies <768px. Everything above that
+// will display normally.
+
+.table-responsive {
+  overflow-x: auto;
+  min-height: 0.01%; // Workaround for IE9 bug (see https://github.com/twbs/bootstrap/issues/14837)
+
+  @media screen and (max-width: @screen-xs-max) {
+    width: 100%;
+    margin-bottom: (@line-height-computed * 0.75);
+    overflow-y: hidden;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    border: 1px solid @table-border-color;
+
+    // Tighten up spacing
+    > .table {
+      margin-bottom: 0;
+
+      // Ensure the content doesn't wrap
+      > thead,
+      > tbody,
+      > tfoot {
+        > tr {
+          > th,
+          > td {
+            white-space: nowrap;
+          }
+        }
+      }
+    }
+
+    // Special overrides for the bordered tables
+    > .table-bordered {
+      border: 0;
+
+      // Nuke the appropriate borders so that the parent can handle them
+      > thead,
+      > tbody,
+      > tfoot {
+        > tr {
+          > th:first-child,
+          > td:first-child {
+            border-left: 0;
+          }
+          > th:last-child,
+          > td:last-child {
+            border-right: 0;
+          }
+        }
+      }
+
+      // Only nuke the last row's bottom-border in `tbody` and `tfoot` since
+      // chances are there will be only one `tr` in a `thead` and that would
+      // remove the border altogether.
+      > tbody,
+      > tfoot {
+        > tr:last-child {
+          > th,
+          > td {
+            border-bottom: 0;
+          }
+        }
+      }
+
+    }
+  }
+}

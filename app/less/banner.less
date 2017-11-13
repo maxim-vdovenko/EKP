@@ -1,0 +1,36 @@
+.main-banner {
+     .block();
+     
+     .container-fluid {
+          height: 240px;
+     }
+     
+     &__fon {
+          .position(absolute, 0px, 0px, 100%, 100%);
+          overflow: hidden;
+          
+          img {
+               .inline_block(top, center);
+               .transform_translate(-50%, -50%);
+               top: 50%;
+               left: 50%;
+               width: auto;
+               height: auto;
+               max-height: none;
+               max-width: none;
+               min-height: 100%;
+               min-width: 100%;
+          }
+     }
+     
+     &__text {
+          .block(center);
+          height: 100%;
+          font-size: 18px;
+          color: #fff;
+          // .b();
+     }
+}
+
+
+

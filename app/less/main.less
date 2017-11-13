@@ -1,0 +1,204 @@
+* {
+     .sizing();
+     margin: 0px; 
+     padding: 0px;
+     outline:none;
+    -webkit-appearance: none;
+     font-family: Ubuntu, sans-serif;
+     font-weight: 400;
+     line-height: 1;
+}
+
+body{
+     background-color: @fonColor;
+}
+html, body {
+     height: 100%;
+}
+
+input, textarea, select, button {
+     .radius();
+     outline: none; 
+}
+form {
+     .block();
+}
+img {
+     border: none; 
+}
+a {
+     text-decoration: none;
+}
+h1, h2, h3, h4, h5, h6 {
+     font-weight: normal;
+}
+
+
+
+
+.total-container {
+     .block();
+     min-height: 100%;
+     min-width: @page_min;
+}
+
+.container-fluid {
+     max-width: @screen-lg;
+     padding-left: 0px;
+     padding-right: 0px;
+}
+
+
+
+
+
+/* .title -------------------------------------*/
+.title {
+     .block();
+     margin: 0px @alert-padding;
+     
+     h1, h2 {
+          .block();
+          color: #00a99d;
+          font-size: 18px;
+          font-weight: 700;
+          text-transform: uppercase;
+          margin: 0px;
+     }
+}
+
+
+
+/* .social-network ----------------------------*/
+.social-network {
+     .block();
+     margin-bottom: 18px;
+     
+     li {
+          .inline_block();
+          margin-right: 4px;
+          
+          &:last-child {
+               margin-right: 0px;
+          }
+     }
+     a {
+          .inline_block();
+          .transition_Own(opacity);
+          .size(20px, 20px);
+          background-image: url('../img/social-network.png');
+          background-repeat: no-repeat;
+          opacity: 0.5;
+          
+          &.net-fb {
+               background-position: 0px 0px;
+          }
+          &.net-in {
+               background-position: -49px 0px;
+          }
+          &.net-vk {
+               background-position: -99px 0px;
+          }
+          &.net-tw {
+               background-position: -149px 0px;
+          }     
+          &:hover {
+               opacity: 1;
+          }
+     }
+}
+
+
+
+
+/* .card-payment ------------------------------*/
+.card-payment {
+     .block();
+     
+     li {
+          .inline_block();
+          margin-right: 6px;
+          
+          &:last-child {
+               margin-right: 0px;
+          }
+     }
+     a {
+          .inline_block();
+          .size(31px, 20px);
+          background-image: url('../img/card-payment.png');
+          background-repeat: no-repeat;
+          
+          &.card-visa {
+               background-position: 0px 0px;
+          }
+          &.card-masterCard {
+               background-position: -50px 0px;
+          }
+          &.card-payPal {
+               background-position: -100px 0px;
+          }
+     }
+}
+
+
+
+
+.rub {
+     .inline_block();
+     font-family: PTRouble, sans-serif;
+     color: inherit;
+     line-height: inherit;
+     font-size: inherit;
+     font-weight: inherit;
+}
+
+
+
+.scrollContent {
+    //padding: 0px 18px 0px 0px;
+
+}
+
+
+/*
+.scrollWrap {
+     //left: 20px;
+}
+
+.scrollContent {
+     padding: 0px 0px 0px 0px;
+     right: 0px;
+}
+
+.fakeScrollBar {
+     right: auto;
+     left: 0px;
+     background-color: red;
+     z-index: 100;
+}
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
