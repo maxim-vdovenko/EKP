@@ -61,52 +61,58 @@ filters.events = function(){
 
 
 
-var table = {
+var table = {    
+    fix: 'fix',    
+    active: 'active',
+     
     tab: '.product .table',
     let: 'thead td b', 
-    str: 'thead td span'
+    str: 'thead td span',
+    
+    head: '.tabHeader',
+    headCont: '.tabHeader__cont'
 };
 
 table.init = function(){
   
-    this.letter();
+    this.sticking();
 };
 
-table.letter = function(){
-    
-    //var firstChar = $(this.str).substr(0, 1).toUpperCase();
-    
-    /*
-    for(var i=0; i<$(this.tab).length; i++){
-        
-        var t = $(table.tab).eq(i).first(table.str).substr(0, 1).toUpperCase();
-        
-        console.log( t );
-        
-    }
-    */
+table.events = function(){
     
     
-    /*
-    var st = "1123цетамиприд 777 G 0";
-    
-    st = String(st);
-    
-    console.log( String(st) );
-    */
-    
-
-    
+                 
 };
 
+table.sticking = function(){
+    var x = null, h = null;
+    
+    $(window).on('scroll', this.button, function(event){
+        table.head_height();
+        
+        x = $(table.head).offset().top;
+        h = $(table.head).innerHeight();
+        
+        if(x >= $(window).scrollTop()){
+            $(table.head).removeClass(table.fix);
+        }else{
+            $(table.head).addClass(table.fix);
+        } 
+    });
+};
 
 table.header = function(){
     var td = $('.product .table').eq(0);
-    $('.tabHeader tr:nth-child(1) td:nth-child(1)').width(td.find('tbody tr:first-child td:nth-child(1)').innerWidth());
-    $('.tabHeader tr:nth-child(1) td:nth-child(2)').width(td.find('tbody tr:first-child td:nth-child(2)').innerWidth());
-    $('.tabHeader tr:nth-child(2) td:nth-child(1)').width(td.find('tbody tr:first-child td:nth-child(3)').innerWidth());
-    $('.tabHeader tr:nth-child(2) td:nth-child(2)').width(td.find('tbody tr:first-child td:nth-child(4)').innerWidth());
-    $('.tabHeader tr:nth-child(2) td:nth-child(3)').width(td.find('tbody tr:first-child td:nth-child(5)').innerWidth());    
+    $(table.head + ' tr:nth-child(1) td:nth-child(1)').width(td.find('tbody tr:first-child td:nth-child(1)').outerWidth() + 1);
+    $(table.head + ' tr:nth-child(1) td:nth-child(2)').width(td.find('tbody tr:first-child td:nth-child(2)').outerWidth());
+    $(table.head + ' tr:nth-child(2) td:nth-child(1)').width(td.find('tbody tr:first-child td:nth-child(3)').outerWidth());
+    $(table.head + ' tr:nth-child(2) td:nth-child(2)').width(td.find('tbody tr:first-child td:nth-child(4)').outerWidth());
+    $(table.head + ' tr:nth-child(2) td:nth-child(3)').width(td.find('tbody tr:first-child td:nth-child(5)').outerWidth());  
+    this.head_height();
+};
+
+table.head_height = function(){
+    $(table.head).height($(table.headCont).height());
 };
 
 

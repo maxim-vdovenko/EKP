@@ -2,9 +2,7 @@
      .block();
      padding-top: 8px;
      padding-bottom: 16px;
-     
-     // width: 2000px;
-     // left: -1200px;
+     overflow: hidden;
 
      .container-fluid {
           
@@ -18,16 +16,30 @@
 /* .tabHeader ---------------------------------*/
 .tabHeader {
      .block();
-     .shadow(0px, 4px, 8px, 1px, rgba(0, 0, 0, 0.16));
-     background-color: #f8f8f8;
-     border: 1px solid #f1f1f1;
      z-index: 1;
      
+     &__cont {
+         .block();
+         
+         &:before {
+              position: absolute;
+              display: none;
+              top: 0px;
+              left: 50%;
+              width: 10000px;
+              height: 100%;
+              margin-left: -5000px;
+              background-color: #f8f8f8;
+              content: '';
+         }
+     }
      &__table {
+          .shadow(0px, 4px, 8px, 1px, rgba(0, 0, 0, 0.16));
           position: relative;
           width: 100%;
           border-collapse: collapse;
-          background-color: transparent;
+          background-color: #f8f8f8;
+          border: 1px solid #f1f1f1;
           
           td {
                height: 26px;
@@ -63,12 +75,56 @@
      }
      
      span&__title {
+          .transition_Own(all, 0.3s);
           .inline_block(top, left);
           color: #787878;
           font-size: 15px;
           font-weight: 700;
           text-transform: uppercase;
           padding: 0px 5px 0px 18px;
+     }
+     
+     &__logo {
+          .transition_Own(all, 0.3s);
+          .position(absolute, 35px, 50%, 0px, 40px);
+          margin-top: -20px;
+          opacity: 0;
+          transform: rotateY(-90deg);
+          transform-origin: left center;
+          //transition-delay: 0.3s;
+          
+          a {
+               .inline_block();
+               width: 40px;
+               left: -20px;
+          }
+          img {
+               .inline_block();
+               width: 100%;
+          }
+     }
+    
+     &.fix {
+          z-index: 1000;
+         
+          .tabHeader__cont {
+               position: fixed;
+               top: 0px;
+               
+               &:before {
+                    //display: block;
+               }
+          }
+          .tabHeader__title {
+               .transform_translate(100px, 0px);
+               opacity: 0;
+               cursor: default;
+          }
+          .tabHeader__logo {
+               z-index: 1;
+               opacity: 1;
+               transform: rotateY(0deg);
+          }
      }
 }
 

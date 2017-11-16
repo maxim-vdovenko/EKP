@@ -4,7 +4,7 @@
 
      <meta charset="utf-8">
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0, maximum-scale=1" />
+     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0, user-scalable=yes"/>
      <title>index</title>
 
      
@@ -66,22 +66,35 @@
 
                   <div class="col-lg-9 col-md-9">
                   
+                      
+                       <!-- .tabHeader -->
                        <div class="tabHeader">
-                            <table class="tabHeader__table" border="0">
-                                 <tr class="tabHeader__txt">
-                                      <td rowspan="2"><span class="tabHeader__title">Наименование</span></td>
-                                      <td rowspan="2"><span>Объём в наличии</span></td>
-                                      <td colspan="3"><span>Условия оплаты</span></td>
-                                 </tr>
-                                 <tr class="tabHeader__val">
-                                      <td><span>100%</span></td>
-                                      <td><span>40/60%</span></td>
-                                      <td><span>30/70%</span></td>
-                                 </tr>
-                            </table>
+                          
+                           <div class="tabHeader__cont"> 
+                               
+                                <table class="tabHeader__table" border="0">
+                                     <tr class="tabHeader__txt">
+                                          <td rowspan="2">
+                                               <div class="tabHeader__logo"><a href="javascript:void(0)"><img src="img/logo.png" alt="logo" /></a></div>
+                                               <span class="tabHeader__title">Наименование</span>
+                                          </td>
+                                          <td rowspan="2"><span>Объём в наличии</span></td>
+                                          <td colspan="3"><span>Условия оплаты</span></td>
+                                     </tr>
+                                     <tr class="tabHeader__val">
+                                          <td><span>100%</span></td>
+                                          <td><span>40/60%</span></td>
+                                          <td><span>30/70%</span></td>
+                                     </tr>
+                                </table>
+                                
+                           </div>
+                           
                        </div>
+                       <!-- END .tabHeader -->
                        
-                       <table class="table table--color-1">
+                       
+                       <table class="table table--color-1" data-toggle="modal" data-target="#mailChanging" data-whatever="reg" >
                             <thead>
                                  <tr>
                                       <td colspan="5"><b>Л</b><span>ЛАКТАТ ХИТОЗАНА</span></td>
@@ -434,7 +447,85 @@
    <!-- END .footer -->    
        
                                                       
+           
                                                                        
+   <div class="modal fade" id="mailChanging" tabindex="-1" role="dialog">
+
+        <div class="modal-dialog" role="document">
+
+             <div class="modal-content">
+
+                  <div class="modal-header">
+                       <span class="modal-header__title">Атрикс КЭ</span>
+                       <div class="btn btn-cartClose" data-dismiss="modal" aria-label="Close"></div>
+                  </div>
+
+                  <div class="modal-body">   
+
+                       <div class="modal-inform">
+
+                            <div class="modal-inform__cont">
+                            
+                                 <div class="modal-inform__box">
+
+                                      <ul class="modal-inform__list">
+                                           <li><b>Категория:</b>Лактат хитозана</li>
+                                           <li><b>Действующее вещество:</b>Лактат хитозана</li>
+                                           <li><b>Упаковка:</b>Лактат хитозана</li>
+                                           <li><b>Концентрация:</b>3554</li>
+                                           <li><b>Класс опасности:</b>3/1</li>
+                                      </ul>
+                                      
+                                 </div>
+                                 
+                                 <div class="modal-inform__box">
+                                     
+                                      <img class="modal-inform__img" src="img/drug.png" alt="img" />
+                                      
+                                 </div>
+                                 
+                            </div>
+                            
+                            <span class="modal-inform__comment"><b>Комментарий:</b>С другой стороны новая модель организационной деятельности влечет за собой процесс внедрения и модернизации соответствующий условий активизации. Повседневная практика показывает, что дальнейшее развитие различных форм деятельности обеспечивает широкому кругу (специалистов) участие в формировании соответствующий.</span>
+
+                       </div>
+                       
+                       <div class="modal-step">
+                       
+                            <div class="modal-step__box">
+
+                                 <div class="stepTitle"><b>1</b><span>Выберите условие оплаты:</span></div>
+                            
+                                 
+                            </div>
+                            
+                            <div class="modal-step__box">
+
+                                 <div class="stepTitle"><b>2</b><span>Выберите объём:</span></div>
+
+                                 
+                            </div>
+                            
+                            <div class="modal-step__box">
+
+                                 <div class="stepTitle"><b>3</b><span>Добавьте в корзину:</span></div>
+                                 
+                                 
+
+                            </div>
+                       
+                       </div>
+
+                  </div>
+
+             </div>
+
+        </div>
+
+   </div>    
+   
+                                                           
+                                                                                                                                                                           
 
    <script type="text/javascript" src="js/jquery.min.js"></script>        
    <script type="text/javascript" src="js/libs.min.js"></script>        
