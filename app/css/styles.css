@@ -2241,6 +2241,9 @@ th {
   text-align: left;
 }
 .table {
+  -webkit-box-shadow: 0px 1px 8px 1px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0px 1px 8px 1px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 1px 8px 1px rgba(0, 0, 0, 0.4);
   position: relative;
   display: table;
   width: 100%;
@@ -2295,6 +2298,7 @@ th {
 .table tbody td {
   height: 49px;
   padding: 15px 15px;
+  border: 1px solid red;
 }
 .table tbody td:nth-child(1) {
   width: 35%;
@@ -7787,12 +7791,23 @@ select.selectpicker {
 @screen_xs: 499px; 
 
 @screen_height_xs: 900px;
-
-
-@shadow_color: rgba(184,147,82,.46); 
 @shadow_color_active: rgba(184,147,82,.65); 
-
 */
+.table_width_1 {
+  width: 35%;
+}
+.table_width_2 {
+  width: 12%;
+}
+.table_width_3 {
+  width: 12%;
+}
+.table_width_4 {
+  width: 15%;
+}
+.table_width_5 {
+  width: 15%;
+}
 .b {
   border: 1px solid red;
 }
@@ -8607,6 +8622,64 @@ h6 {
   text-align: left;
   padding-top: 8px;
   padding-bottom: 16px;
+}
+/* .tabHeader ---------------------------------*/
+.tabHeader {
+  position: relative;
+  display: block;
+  text-align: left;
+  -webkit-box-shadow: 0px 4px 8px 1px rgba(0, 0, 0, 0.16);
+  -moz-box-shadow: 0px 4px 8px 1px rgba(0, 0, 0, 0.16);
+  box-shadow: 0px 4px 8px 1px rgba(0, 0, 0, 0.16);
+  background-color: #f8f8f8;
+  border: 1px solid #f1f1f1;
+  z-index: 1;
+}
+.tabHeader__table {
+  position: relative;
+  width: 100%;
+  border-collapse: collapse;
+  background-color: transparent;
+}
+.tabHeader__table td {
+  height: 26px;
+  padding: 3px 0px;
+}
+.tabHeader__table span {
+  position: relative;
+  display: block;
+  text-align: center;
+  color: #787878;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 0px 5px;
+}
+.tabHeader__txt td {
+  border-right: 1px solid #eaeaea;
+}
+.tabHeader__txt td:last-child {
+  border-right: none;
+}
+.tabHeader__val td {
+  background-color: #f3f3f3;
+}
+.tabHeader__val td span {
+  border-left: 1px solid #e2e2e2;
+  padding: 5px 5px 3px 5px;
+}
+.tabHeader__val td:first-child span {
+  border-left: none;
+}
+span.tabHeader__title {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  text-align: left;
+  color: #787878;
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 0px 5px 0px 18px;
 }
 .filters {
   position: relative;

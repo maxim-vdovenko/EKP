@@ -2,22 +2,17 @@ $(document).ready(function(){ /* ... */ });
 
 window.onload = function(){
      
-    
-    //table.init();
+    page.init();
+    table.init();
     filters.init();
      
-     
-     
-     
-     
-     $('.selectpicker').selectpicker({
-          size: 4
-     });
-     
-     
-     
-     $('.cartBlock__list').scrollbar();
+    
+    
+    $('.selectpicker').selectpicker({
+        size: 4
+    });
 
+    $('.cartBlock__list').scrollbar();
 };
 
 
@@ -75,7 +70,6 @@ var table = {
 table.init = function(){
   
     this.letter();
-    this.events();
 };
 
 table.letter = function(){
@@ -106,8 +100,13 @@ table.letter = function(){
 };
 
 
-table.events = function(){
-
+table.header = function(){
+    var td = $('.product .table').eq(0);
+    $('.tabHeader tr:nth-child(1) td:nth-child(1)').width(td.find('tbody tr:first-child td:nth-child(1)').innerWidth());
+    $('.tabHeader tr:nth-child(1) td:nth-child(2)').width(td.find('tbody tr:first-child td:nth-child(2)').innerWidth());
+    $('.tabHeader tr:nth-child(2) td:nth-child(1)').width(td.find('tbody tr:first-child td:nth-child(3)').innerWidth());
+    $('.tabHeader tr:nth-child(2) td:nth-child(2)').width(td.find('tbody tr:first-child td:nth-child(4)').innerWidth());
+    $('.tabHeader tr:nth-child(2) td:nth-child(3)').width(td.find('tbody tr:first-child td:nth-child(5)').innerWidth());    
 };
 
 
@@ -126,36 +125,27 @@ table.events = function(){
 
 /* page ---------------------------------------*/
 var page = {
-    x: 0, 
-    lg: 1141, //1140
-    md: 992,
-    sm: 768,
-    xs: 500
+    x: 0
 };
 
 page.init = function(){
     page.events();
+    table.header();
     
     $(window).resize(function(){
         page.events();
+        table.header();
     });
 };
 
 page.events = function(){
     this.x = window.innerWidth;
     
-    if(this.lg <= this.x){
-        canvas.resNormal();
+    if(this.x > 768){
+       
     }else{
-        canvas.resMobile();
+      
     } 
-    
-    if(this.md <= this.x){
-        menuMobile.close();
-        news.resNormal();
-    }else { 
-        news.resMobile(); 
-    }
 };
 
 
