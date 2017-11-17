@@ -5,8 +5,7 @@ window.onload = function(){
     page.init();
     table.init();
     filters.init();
-     
-    
+    cart.init();     
     
     $('.selectpicker').selectpicker({
         size: 4
@@ -18,8 +17,35 @@ window.onload = function(){
 
 
 
+/* page ---------------------------------------*/
+var page = {
+     x: 0
+};
+
+page.init = function(){
+     page.events();
+     table.header();
+
+     $(window).resize(function(){
+          page.events();
+          table.header();
+     });
+};
+
+page.events = function(){
+     this.x = window.innerWidth;
+
+     if(this.x > 768){
+       
+     }else{
+        
+     } 
+};
 
 
+
+
+/* filters ------------------------------------*/
 var filters = {
     active: 'active',
     bl: '.filters',
@@ -47,20 +73,13 @@ filters.events = function(){
             $(this).parents(filters.box).addClass(filters.active);
             $(this).parents(filters.box).find(' > ul').slideDown(filters.tim);
         }
-        
     });
-    
 };
 
 
 
 
-
-
-
-
-
-
+/* table --------------------------------------*/
 var table = {    
     fix: 'fix',    
     active: 'active',
@@ -79,9 +98,7 @@ table.init = function(){
 };
 
 table.events = function(){
-    
-    
-                 
+                  
 };
 
 table.sticking = function(){
@@ -118,45 +135,29 @@ table.head_height = function(){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-/* page ---------------------------------------*/
-var page = {
-    x: 0
+/* cart ---------------------------------------*/
+var cart = {
+    title: '.cartBlock__title b',
+    list: '.cartBlock__list',
+    listUl: '.cartBlock__list ul'
 };
 
-page.init = function(){
-    page.events();
-    table.header();
+cart.init = function(){
+    cart.quantity();
     
-    $(window).resize(function(){
-        page.events();
-        table.header();
+    $('body').on('DOMSubtreeModified', this.list, function(event){
+        cart.quantity();
+    });
+    
+    $('body').on('click', this.list + ' .btn-cartClose', function(event){
+        $(this).parents('ul').remove();
     });
 };
 
-page.events = function(){
-    this.x = window.innerWidth;
-    
-    if(this.x > 768){
-       
-    }else{
-      
-    } 
+cart.quantity = function(){
+    var siz = $(this.listUl).length;
+    $(this.title).text(siz);
 };
-
-
-
-
 
 
 

@@ -190,38 +190,50 @@
 
      &__list {
           .block();
-          height: (@cartBlock_height * 3) + 3px;
-          // overflow: hidden;
-          overflow: auto;
-      
+          max-height: @cartBlock_height * 3;
+          overflow: hidden;
         
           ul {
-               .inline_block();
+               position: relative;
+               display: flex;
                width: 100%;
+               height: @cartBlock_height;
                border-bottom: 1px solid #d9d9d9;
                margin-bottom: 0px;
                
+              
+               
                li {
                     .inline_block();
-                    float: left;
+                    margin: auto 0px;
                     color: #686868;
                     font-size: 15px;
-                    padding: 18px 5px 0px 0px;
+                    padding: 0px 5px 0px 0px;
                     
                     &:nth-child(1) {
-                         width: 60%;
+                         .one_line();
+                         width: 55%;
                          font-weight: 500;
+                         padding-right: 15px;
                     }
                     &:nth-child(2) {
-                         width: 25%;
+                         width: 30%;
                          font-weight: 700;
                     }
                     &:nth-child(3) {
                          width: 15%;
                          text-align: right;
-                         padding: 14px 16px 0px 0px;
+                         padding: 0px 16px 0px 0px;
                     }
-                    
+               }
+               
+               b {
+                    .inline_block();
+                    .one_line();
+                    width: inherit;
+                    color: #686868;
+                    font-size: 15px;
+                    font-weight: 700;
                }
           }
      }
@@ -230,20 +242,26 @@
      &__listTotal {
           .inline_block();
           width: 100%;
+          height: @cartBlockTotal_height;
           margin-bottom: 0px;
           
           li {
+               float: left;
+               min-height: @cartBlock_height;
                padding: 16px 5px 0px 0px;
                
                &:nth-child(1) {
-                    width: 60%;
+                    .one_line();
+                    width: 55%;
                     line-height: 18px;
                     font-size: 16px;
                     font-weight: 500;
                     text-transform: uppercase;
+                    padding-right: 15px;
                }
                &:nth-child(2) {
-                    width: 40%;
+                    .one_line();
+                    width: 45%;
                     line-height: 18px;
                     font-size: 17px;
                     font-weight: 700;
@@ -255,8 +273,6 @@
           
           li {
                .inline_block();
-               float: left;
-               min-height: @cartBlock_height;
                color: #686868;
                
                &:first-child {
