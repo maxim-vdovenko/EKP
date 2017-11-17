@@ -8855,6 +8855,14 @@ h6 {
   padding-bottom: 16px;
   overflow: hidden;
 }
+.product .container-fluid > div:nth-child(1) {
+  padding-left: 0px;
+}
+@media (max-width: 992px) {
+  .product .container-fluid > div:nth-child(1) {
+    padding-left: 15px;
+  }
+}
 /* .tabHeader ---------------------------------*/
 .tabHeader {
   position: relative;
