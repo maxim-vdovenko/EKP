@@ -5,13 +5,22 @@ window.onload = function(){
     page.init();
     table.init();
     filters.init();
-    cart.init();     
+    cart.init();    
+    schedule.init();
+    
+    
     
     $('.selectpicker').selectpicker({
         size: 4
     });
 
     $('.cartBlock__list').scrollbar();
+     
+     //$('.circlestat').circliful();
+     
+     
+     
+     
 };
 
 
@@ -162,6 +171,50 @@ cart.quantity = function(){
 
 
 
+/* schedule -----------------------------------*/
+var schedule = {
+    active: 'active',
+    modal: '#product',
+    bl: '.conditions',
+    cont: '.conditions__cont',
+    
+    average: '.conditions__cont--average .schedule circle',
+    popular: '.conditions__cont--popular .schedule circle',
+    junior: '.conditions__cont--junior .schedule circle'
+};
+
+schedule.init = function(){
+
+    $('body').on('shown.bs.modal', this.modal, function(event){
+        schedule.circleInit(schedule.average, true);
+        schedule.circleInit(schedule.popular, true);
+        schedule.circleInit(schedule.junior, true);
+    });
+    
+    $('body').on('hidden.bs.modal', this.modal, function(event){
+        schedule.circleInit(schedule.average, false);
+        schedule.circleInit(schedule.popular, false);
+        schedule.circleInit(schedule.junior, false);
+    });
+    
+    $('body').on('click', '.btn-conditions', function(event){
+        $(this).parents(schedule.bl).find(schedule.cont).removeClass(schedule.active);
+        $(this).parents(schedule.cont).addClass(schedule.active);
+    });
+
+};
+
+schedule.circleInit = function(th, init){
+    
+    var v = 0;
+    if(init){
+        v = $(th).attr('value');
+    }
+    
+    var rad = 2 * parseInt($(th).attr('r'), 10) * Math.PI;
+    var val = (v / 100) * rad;
+    $(th).css('stroke-dasharray', val + ',' + rad);
+};
 
 
 
