@@ -178,30 +178,42 @@ var schedule = {
     bl: '.conditions',
     cont: '.conditions__cont',
     
-    average: '.conditions__cont--average .schedule circle',
+    junior: '.conditions__cont--junior .schedule circle',
     popular: '.conditions__cont--popular .schedule circle',
-    junior: '.conditions__cont--junior .schedule circle'
+    average: '.conditions__cont--average .schedule circle'
 };
 
 schedule.init = function(){
 
+    this.events();
+    this.distribution();
+};
+
+schedule.events = function(){
+    
     $('body').on('shown.bs.modal', this.modal, function(event){
         schedule.circleInit(schedule.average, true);
         schedule.circleInit(schedule.popular, true);
         schedule.circleInit(schedule.junior, true);
     });
-    
+
     $('body').on('hidden.bs.modal', this.modal, function(event){
         schedule.circleInit(schedule.average, false);
         schedule.circleInit(schedule.popular, false);
         schedule.circleInit(schedule.junior, false);
+
+        $(schedule.cont).removeClass(schedule.active);
+        $('.conditions__cont--popular').addClass(schedule.active);
     });
-    
+
     $('body').on('click', '.btn-conditions', function(event){
         $(this).parents(schedule.bl).find(schedule.cont).removeClass(schedule.active);
         $(this).parents(schedule.cont).addClass(schedule.active);
     });
+};
 
+schedule.distribution = function(){
+     
 };
 
 schedule.circleInit = function(th, init){

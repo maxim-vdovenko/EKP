@@ -265,11 +265,11 @@
      
      &__box {
           .block();
-          padding: 18px @modal-padding-side 100px @modal-padding-side;
+          padding: 18px @modal-padding-side 25px @modal-padding-side;
           border-top: 1px solid #eaeaea;
           
           @media (max-width: @screen-sm) {
-               padding: 12px @modal-padding-side-sm 100px @modal-padding-side-sm;
+               padding: 12px @modal-padding-side-sm 25px @modal-padding-side-sm;
           }
      }
 }
@@ -300,6 +300,54 @@
           margin: auto 0px;
      }
 }
+
+
+
+.modal-priceList {
+     .block(); 
+     padding: 15px 0px 0px 43px;
+     
+     li {
+          .block(); 
+          font-size: 13px;
+          color: #4d4d4d;
+          margin-bottom: 7px;
+          
+          b {
+               font-size: 13px;
+               font-weight: 500;
+               color: #4d4d4d;
+          }
+          .rub {
+               line-height: 12px;
+          }
+     }
+}
+
+
+
+.modal-priceButton {
+     .inline_block();
+     width: 100%;
+     padding: 20px 0px 5px 43px;
+     
+     li {
+          .inline_block();
+          float: left;
+          width: 50%;
+          
+          &:first-child {
+               width: 60%;
+          }
+          &:last-child {
+               width: 40%;
+               text-align: right;
+          } 
+     }
+}
+
+
+
 
 
 

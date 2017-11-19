@@ -2,15 +2,17 @@
      position: relative;
      display: flex;
      justify-content: space-between;
-     //width: 100%;
+     width: 100%;
      min-height: 252px;
      margin-top: 85px;
      
+
      &__cont {
           .transition_Own(width, @conditions_time_open);
           .inline_block();
+          width: 33.33%;
           padding: 0px 8px;
-          
+         
           &:first-child {
                padding-left: 0px;
           }
@@ -18,20 +20,8 @@
                padding-right: 0px;
           } 
           
-          &--average {
-               .schedule {
-                    //.size(120px, 120px);
-                    //margin-top: -60px;
-               }
-          }
-          
           &--popular {
                
-               .schedule {
-                    //.size(144px, 144px);
-                    //margin-top: -72px;
-                    //padding: 7px;
-               }
                .conditionsBox__price {
                     b {
                          font-size: 25px;
@@ -59,14 +49,46 @@
                }
           }
           
-          &--junior {
+          &--empty {
                
+               .schedule__cont {
+                    span {
+                         .size(80px, 5px);
+                         color: transparent;
+                         background-color: @conditions_color_empty;
+                         overflow: hidden;
+                    }
+               }
                .schedule {
-                    //.size(102px, 102px);
-                    //margin-top: -51px;
+                    svg {
+                         color: @conditions_color_empty;
+                    }
+               }
+               .conditionsBox__price {
+                    .size(60px, 4px);
+                    color: transparent;
+                    background-color: @conditions_color_empty;
+                    overflow: hidden;
+                    margin: 22px auto 0px auto;
+                    
+                    .rub, b {
+                         display: none;
+                    }
+               }
+               .conditionsBox:before {
+                    border-color: @conditions_color_empty;
+               }
+               .conditionsBox__info {
+                    visibility: hidden;
                }
           }
-         
+          
+          &--one {
+               width: 100%;
+               max-width: 170px;
+               margin: 0px auto;
+          }
+
           &.active {
                
                .schedule {
@@ -125,6 +147,11 @@
                
                .conditionsBox__info {
                     margin-top: 7px;
+               }
+               
+               .btn-conditions {
+                    font-size: 14px;
+                    padding-top: 6px;
                }
           }
      }
@@ -212,7 +239,8 @@
           &__info {
                .block(center);
                .transition_Own(margin-top, @conditions_time_open);
-               margin-top: -18px;
+               width: 115px;
+               margin: -18px auto 0px auto;
                
                a {
                     .inline_block();
@@ -221,6 +249,7 @@
                     font-weight: 300;
                     color: #a3a3a3;
                     text-decoration: underline;
+                    margin-top: 6px;
                     
                     &:hover {
                          text-decoration: none;
@@ -229,17 +258,16 @@
           }
           
           &__text {
-               .inline_block(top, center);
-               width: 115px;
+               .block(center);
                font-size: 12px;
-               line-height: 12px;
+               line-height: 11px;
                font-weight: 300;
                color: #6e6e6e;
           }
           
           &__button {
                .block(center);
-               margin-top: 12px;
+               margin-top: 17px;
           }
           
           &:hover {

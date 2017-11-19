@@ -16,5 +16,8 @@
     "gulp-less": "^3.3.0",
     "gulp-rename": "^1.2.2",
     "gulp-uglifyjs": "^0.6.2"
+  },
+  "dependencies": {
+    "vue-slider-component": "^2.4.5"
   }
 }

@@ -3111,6 +3111,11 @@ select[multiple].input-lg {
   display: inline-block;
   vertical-align: top;
   text-align: left;
+  -webkit-transition: 0.15s background;
+  -moz-transition: 0.15s background;
+  -ms-transition: 0.15s background;
+  -o-transition: 0.15s background;
+  transition: 0.15s background;
   margin-bottom: 0;
   cursor: pointer;
   background-image: none;
@@ -3142,11 +3147,6 @@ input.btn {
   border-radius: 0px;
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
-  -webkit-transition: 0.15s background;
-  -moz-transition: 0.15s background;
-  -ms-transition: 0.15s background;
-  -o-transition: 0.15s background;
-  transition: 0.15s background;
   min-height: 44px;
   padding: 14px 15px 12px 15px;
   background-color: #009187;
@@ -3171,7 +3171,8 @@ input.btn {
   .button-variant(@btn-danger-color; @btn-danger-bg; @btn-danger-border);
 }
 */
-.btn-conditions {
+.btn-conditions,
+.btn-conditionsEmpty {
   position: relative;
   display: inline-block;
   vertical-align: top;
@@ -3182,25 +3183,32 @@ input.btn {
   border-radius: 0px;
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
-  -webkit-transition: 0.15s background;
-  -moz-transition: 0.15s background;
-  -ms-transition: 0.15s background;
-  -o-transition: 0.15s background;
-  transition: 0.15s background;
+  -webkit-transition: 0.25s all;
+  -moz-transition: 0.25s all;
+  -ms-transition: 0.25s all;
+  -o-transition: 0.25s all;
+  transition: 0.25s all;
   min-height: 27px;
   width: 100px;
   padding: 7px 5px 4px 5px;
-  background-color: #01a99d;
   color: #fff!important;
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
+}
+.btn-conditions {
+  background-color: #01a99d;
 }
 .btn-conditions:hover {
   background-color: #32c6bb;
 }
 .btn-conditions:active {
   background-color: #158a82;
+}
+.btn-conditionsEmpty {
+  background-color: #e1e1e1;
+  color: #7f7f7f!important;
+  cursor: default;
 }
 .btn-backCall {
   position: relative;
@@ -3213,11 +3221,6 @@ input.btn {
   border-radius: 0px;
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
-  -webkit-transition: 0.15s background;
-  -moz-transition: 0.15s background;
-  -ms-transition: 0.15s background;
-  -o-transition: 0.15s background;
-  transition: 0.15s background;
   min-height: 26px;
   padding: 8px 20px 4px 20px;
   background-color: #01a99d;
@@ -3232,6 +3235,39 @@ input.btn {
 .btn-backCall:active {
   background-color: #158a82;
 }
+.btn-print {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  text-align: left;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  -webkit-border-radius: 0px;
+  -khtml-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  min-height: 38px;
+  padding: 11px 15px 0px 47px;
+  background-color: #59b87d;
+  color: #fff!important;
+}
+.btn-print:before {
+  position: absolute;
+  top: 10px;
+  left: 16px;
+  width: 20px;
+  height: 18px;
+  content: '';
+  background-image: url('../img/sprites.png');
+  background-position: -500px 0px;
+  background-repeat: no-repeat;
+}
+.btn-print:hover {
+  background-color: #32c6bb;
+}
+.btn-print:active {
+  background-color: #158a82;
+}
 .btn-cart {
   position: relative;
   display: inline-block;
@@ -3243,17 +3279,18 @@ input.btn {
   border-radius: 0px;
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
-  -webkit-transition: 0.15s background;
-  -moz-transition: 0.15s background;
-  -ms-transition: 0.15s background;
-  -o-transition: 0.15s background;
-  transition: 0.15s background;
   min-height: 38px;
   padding: 11px 15px 0px 15px;
   background-color: #009187;
   color: #fff!important;
   font-size: 14px;
   text-transform: uppercase;
+}
+.btn-cart:hover {
+  background-color: #32c6bb;
+}
+.btn-cart:active {
+  background-color: #158a82;
 }
 .btn-cartClose {
   position: relative;
@@ -3268,11 +3305,6 @@ input.btn {
   height: 24px;
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
-  -webkit-transition: 0.15s background;
-  -moz-transition: 0.15s background;
-  -ms-transition: 0.15s background;
-  -o-transition: 0.15s background;
-  transition: 0.15s background;
   padding: 0px;
   background-color: #e3e3e3;
   text-align: center;
@@ -3311,33 +3343,6 @@ input.btn {
 .btn-cartClose:hover {
   background-color: #929292;
 }
-.btn-print {
-  position: relative;
-  display: inline-block;
-  vertical-align: top;
-  text-align: left;
-  -webkit-box-shadow: none !important;
-  box-shadow: none !important;
-  -webkit-border-radius: 0px;
-  -khtml-border-radius: 0px;
-  -moz-border-radius: 0px;
-  border-radius: 0px;
-  min-height: 38px;
-  padding: 11px 15px 0px 47px;
-  background-color: #59b87d;
-  color: #fff!important;
-}
-.btn-print:before {
-  position: absolute;
-  top: 10px;
-  left: 16px;
-  width: 20px;
-  height: 18px;
-  content: '';
-  background-image: url('../../img/sprites.png');
-  background-position: -500px 0px;
-  background-repeat: no-repeat;
-}
 .btn-cartClear {
   position: relative;
   display: inline-block;
@@ -3349,11 +3354,20 @@ input.btn {
   -khtml-border-radius: 0px;
   -moz-border-radius: 0px;
   border-radius: 0px;
+  -webkit-transition: 0.15s all;
+  -moz-transition: 0.15s all;
+  -ms-transition: 0.15s all;
+  -o-transition: 0.15s all;
+  transition: 0.15s all;
   min-height: 44px;
   padding: 14px 16px 0px 41px;
   background-color: #fff;
   border: 2px solid #a8a8a8;
   color: #a8a8a8!important;
+  opacity: 0.6;
+}
+button.btn-cartClear {
+  padding-top: 0px;
 }
 .btn-cartClear:before {
   position: absolute;
@@ -3362,9 +3376,62 @@ input.btn {
   width: 14px;
   height: 19px;
   content: '';
-  background-image: url('../../img/sprites.png');
+  background-image: url('../img/sprites.png');
   background-position: -600px 0px;
   background-repeat: no-repeat;
+}
+.btn-cartClear:hover {
+  opacity: 1;
+}
+.btn-cartClear:active {
+  border-color: #606060;
+  color: #606060!important;
+}
+.btn-cartAdd {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  text-align: left;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  -webkit-border-radius: 0px;
+  -khtml-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  min-height: 40px;
+  padding: 12px 22px 0px 41px;
+  background-color: #00a99d;
+  font-size: 17px;
+  color: #fff!important;
+}
+button.btn-cartAdd {
+  padding-top: 0px;
+}
+.btn-cartAdd:before {
+  position: absolute;
+  top: 50%;
+  left: 24px;
+  width: 2px;
+  height: 10px;
+  content: '';
+  margin-top: -5px;
+  background-color: #fff;
+}
+.btn-cartAdd:after {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  width: 10px;
+  height: 2px;
+  content: '';
+  margin-top: -1px;
+  background-color: #fff;
+}
+.btn-cartAdd:hover {
+  background-color: #32c6bb;
+}
+.btn-cartAdd:active {
+  background-color: #158a82;
 }
 .btn-arrowRight {
   position: relative;
@@ -3390,9 +3457,15 @@ input.btn {
   height: 13px;
   right: 14px;
   content: '';
-  background-image: url('../../img/sprites.png');
+  background-image: url('../img/sprites.png');
   background-position: -300px 0px;
   background-repeat: no-repeat;
+}
+.btn-arrowRight:hover {
+  background-color: #32c6bb;
+}
+.btn-arrowRight:active {
+  background-color: #158a82;
 }
 .btn-link {
   color: #337ab7;
@@ -3816,11 +3889,27 @@ tbody.collapse.in {
   padding-right: 0;
 }
 .input-group .form-control {
+  -webkit-border-radius: 0px;
+  -khtml-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  height: 40px;
   position: relative;
   z-index: 2;
+  border: 1px solid #01a99d;
+  border-right: none;
   float: left;
   width: 100%;
   margin-bottom: 0;
+  font-family: Muller, sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  color: #4d4d4d;
+  text-align: right;
+  padding: 3px 8px 0px 8px!important;
 }
 .input-group .form-control:focus {
   z-index: 3;
@@ -3888,15 +3977,16 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   vertical-align: middle;
 }
 .input-group-addon {
-  padding: 6px 12px;
-  font-size: 14px;
+  position: relative;
+  width: 26px;
+  padding: 0px 0px 0px 0px;
   font-weight: normal;
   line-height: 1;
-  color: #555555;
+  font-size: 16px;
+  color: #fff;
   text-align: center;
-  background-color: #eeeeee;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  background-color: #01a99d;
+  border-radius: 0px;
 }
 .input-group-addon.input-sm {
   padding: 5px 10px;
@@ -3907,6 +3997,27 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   padding: 10px 16px;
   font-size: 18px;
   border-radius: 6px;
+}
+.input-group-addon.input-rub {
+  overflow: hidden;
+  color: transparent;
+}
+.input-group-addon.input-rub:before {
+  position: relative;
+  display: block;
+  text-align: center;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  content: '7';
+  font-family: PTRouble, sans-serif;
+  color: #fff!important;
+  line-height: 1;
+  font-size: 24px;
+  font-weight: 400;
+  padding-top: 5px;
 }
 .input-group-addon input[type="radio"],
 .input-group-addon input[type="checkbox"] {
@@ -6108,12 +6219,12 @@ button.close {
   position: relative;
   display: block;
   text-align: left;
-  padding: 18px 47px 100px 47px;
+  padding: 18px 47px 25px 47px;
   border-top: 1px solid #eaeaea;
 }
 @media (max-width: 768px) {
   .modal-step__box {
-    padding: 12px 10px 100px 10px;
+    padding: 12px 10px 25px 10px;
   }
 }
 .stepTitle {
@@ -6148,6 +6259,51 @@ button.close {
   font-weight: 500;
   color: #00a99d;
   margin: auto 0px;
+}
+.modal-priceList {
+  position: relative;
+  display: block;
+  text-align: left;
+  padding: 15px 0px 0px 43px;
+}
+.modal-priceList li {
+  position: relative;
+  display: block;
+  text-align: left;
+  font-size: 13px;
+  color: #4d4d4d;
+  margin-bottom: 7px;
+}
+.modal-priceList li b {
+  font-size: 13px;
+  font-weight: 500;
+  color: #4d4d4d;
+}
+.modal-priceList li .rub {
+  line-height: 12px;
+}
+.modal-priceButton {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  text-align: left;
+  width: 100%;
+  padding: 20px 0px 5px 43px;
+}
+.modal-priceButton li {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  text-align: left;
+  float: left;
+  width: 50%;
+}
+.modal-priceButton li:first-child {
+  width: 60%;
+}
+.modal-priceButton li:last-child {
+  width: 40%;
+  text-align: right;
 }
 @media (min-width: 768px) {
   .modal-dialog {
@@ -9221,6 +9377,7 @@ span.tabHeader__title {
   position: relative;
   display: flex;
   justify-content: space-between;
+  width: 100%;
   min-height: 252px;
   margin-top: 85px;
 }
@@ -9234,6 +9391,7 @@ span.tabHeader__title {
   display: inline-block;
   vertical-align: top;
   text-align: left;
+  width: 33.33%;
   padding: 0px 8px;
 }
 .conditions__cont:first-child {
@@ -9276,6 +9434,39 @@ span.tabHeader__title {
 }
 .conditions__cont--popular .conditionsBox__price:after {
   margin-left: 8px;
+}
+.conditions__cont--empty .schedule__cont span {
+  width: 80px;
+  height: 5px;
+  color: transparent;
+  background-color: #e1e1e1;
+  overflow: hidden;
+}
+.conditions__cont--empty .schedule svg {
+  color: #e1e1e1;
+}
+.conditions__cont--empty .conditionsBox__price {
+  width: 60px;
+  height: 4px;
+  color: transparent;
+  background-color: #e1e1e1;
+  overflow: hidden;
+  margin: 22px auto 0px auto;
+}
+.conditions__cont--empty .conditionsBox__price .rub,
+.conditions__cont--empty .conditionsBox__price b {
+  display: none;
+}
+.conditions__cont--empty .conditionsBox:before {
+  border-color: #e1e1e1;
+}
+.conditions__cont--empty .conditionsBox__info {
+  visibility: hidden;
+}
+.conditions__cont--one {
+  width: 100%;
+  max-width: 170px;
+  margin: 0px auto;
 }
 .conditions__cont.active .schedule {
   -webkit-box-shadow: 0px 5px 7px 0px rgba(0, 0, 0, 0.2);
@@ -9328,6 +9519,10 @@ span.tabHeader__title {
 }
 .conditions__cont.active .conditionsBox__info {
   margin-top: 7px;
+}
+.conditions__cont.active .btn-conditions {
+  font-size: 14px;
+  padding-top: 6px;
 }
 .conditionsBox {
   position: relative;
@@ -9478,7 +9673,8 @@ span.tabHeader__title {
   -ms-transition: 0.4s margin-top;
   -o-transition: 0.4s margin-top;
   transition: 0.4s margin-top;
-  margin-top: -18px;
+  width: 115px;
+  margin: -18px auto 0px auto;
 }
 .conditionsBox__info a {
   position: relative;
@@ -9490,18 +9686,17 @@ span.tabHeader__title {
   font-weight: 300;
   color: #a3a3a3;
   text-decoration: underline;
+  margin-top: 6px;
 }
 .conditionsBox__info a:hover {
   text-decoration: none;
 }
 .conditionsBox__text {
   position: relative;
-  display: inline-block;
-  vertical-align: top;
+  display: block;
   text-align: center;
-  width: 115px;
   font-size: 12px;
-  line-height: 12px;
+  line-height: 11px;
   font-weight: 300;
   color: #6e6e6e;
 }
@@ -9509,7 +9704,7 @@ span.tabHeader__title {
   position: relative;
   display: block;
   text-align: center;
-  margin-top: 12px;
+  margin-top: 17px;
 }
 .select-cont {
   position: relative;
