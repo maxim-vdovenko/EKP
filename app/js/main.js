@@ -7,6 +7,7 @@ window.onload = function(){
     filters.init();
     cart.init();    
     schedule.init();
+   // slid.init();
     
     
     
@@ -192,6 +193,10 @@ schedule.init = function(){
 schedule.events = function(){
     
     $('body').on('shown.bs.modal', this.modal, function(event){
+        slid.init();
+    });
+    
+    $('body').on('shown.bs.modal', this.modal, function(event){
         schedule.circleInit(schedule.average, true);
         schedule.circleInit(schedule.popular, true);
         schedule.circleInit(schedule.junior, true);
@@ -204,6 +209,8 @@ schedule.events = function(){
 
         $(schedule.cont).removeClass(schedule.active);
         $('.conditions__cont--popular').addClass(schedule.active);
+        
+        slid.reset();
     });
 
     $('body').on('click', '.btn-conditions', function(event){
@@ -229,5 +236,82 @@ schedule.circleInit = function(th, init){
 };
 
 
+
+
+/* slid ---------------------------------------*/
+var slid = {
+    bl: '.vueSlider',
+    v: null
+};
+
+slid.init = function(){
+    if(this.v != null) return;
+    
+    this.v = new Vue({
+        el: slid.bl,
+         
+        data () {
+            return {
+               
+            }
+        },
+        data: {
+            direction: "horizontal", 
+            value: 20,
+            min: 0,
+            max: 400,
+            eventType: "auto", 
+            formatter: '¥{value}',
+            speed: 0.5,
+            bgStyle: null,
+            sliderStyle: null, 
+            tooltipStyle: null, 
+            processStyle: null, 
+            piecewiseStyle: null
+            
+            /*
+            value: 20,
+            width: "auto",
+            height: 0,
+            direction: "horizontal", 
+            dotSize: 16,
+            eventType: "auto", 
+            min: 0,
+            max: 100,
+            interval: 1,
+            disabled: false,
+            show: true,
+            realTime: false, 
+            tooltip: "always", 
+            clickable: true,
+            tooltipDir: "top",
+            piecewise: false, 
+            lazy: false,
+            reverse: false, 
+            speed: 0.5,
+            formatter: "¥${v}", 
+            bgStyle: null,
+            sliderStyle: null, 
+            tooltipStyle: null, 
+            processStyle: null, 
+            piecewiseStyle: null,
+             */
+             
+        },
+        components: {
+            'vueSlider': window['vue-slider-component']
+        },
+        methods: {
+            reset() {
+                this.value = 20;
+            }
+        }
+    });
+    
+};
+
+slid.reset = function(){
+    this.v.reset();
+};
 
 

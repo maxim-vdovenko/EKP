@@ -10,15 +10,27 @@
      &__cont {
           .transition_Own(width, @conditions_time_open);
           .inline_block();
-          width: 33.33%;
           padding: 0px 8px;
-         
+
+          
+          &:nth-child(1) {
+               width: 31%;
+          }
+          &:nth-child(2) {
+               width: 38%;
+          }
+          &:nth-child(3) {
+               width: 31%;
+          }
+          
+          
           &:first-child {
                padding-left: 0px;
           }
           &:last-child {
                padding-right: 0px;
           } 
+          
           
           &--popular {
                
@@ -93,16 +105,26 @@
                
                .schedule {
                     .shadow(0px, 5px, 7px, 0px, rgba(0,0,0, .2));
+               }
+          
+               &.conditions__cont--popular .schedule {
                     .size(140px, 140px);
                     margin-top: -70px;
                     padding: 7px;
-                    
+
                     &__cont span {
                          font-size: 32px;
                     }
                     &__cont b {
                          font-size: 13px;
                     }
+               }
+               
+               &.conditions__cont--junior .schedule,
+               &.conditions__cont--average .schedule {
+                    .size(130px, 130px);
+                    margin-top: -65px;
+                    padding: 7px;
                }
                
                .conditionsBox {

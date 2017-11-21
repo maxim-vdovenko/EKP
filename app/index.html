@@ -598,6 +598,29 @@
 
                                  <div class="stepTitle"><b>2</b><span>Выберите объём:</span></div>
 
+                                 <span class="modal-step__volumeInfo">1 уп.= 2,5 л</span>
+                                
+                                 
+                                 <div class="vueSliderBlock">
+                                     
+                                      <div class="vueSlider">
+                                           <vue-slider v-model="value"></vue-slider>
+                                           <span class="vueSlider__from">{{min}} л</span>
+                                           <span class="vueSlider__before">{{max}} л</span>
+                                           <input class="vueSlider__input" type="text" :value="value" />
+                                      </div>
+                                      
+                                 </div>
+                                 
+                              
+                                 
+                                 <!--
+                                 <div id="app">
+                                      <vue-slider v-model="value" v-bind="options"></vue-slider>
+                                      
+                                 </div>
+                                 -->
+                        
                                  
                             </div>
                             
@@ -637,6 +660,56 @@
    
    
    
+   
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.0/vue.min.js"></script>
+   <script src="https://nightcatsama.github.io/vue-slider-component/dist/index.js"></script>
+   
+
+   
+   <!--
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.2/vue.min.js"></script>
+     <script src="https://nightcatsama.github.io/vue-slider-component/dist/index.js"></script>
+   
+    <script>
+        
+         new Vue( {
+              el: '#app',
+              data: {
+                   value: 20,
+                   width: "auto",
+                   height: 30,
+                   direction: "horizontal", 
+                   dotSize: 16,
+                   eventType: "auto", 
+                   min: 0,
+                   max: 100,
+                   interval: 1,
+                   disabled: false,
+                   show: true,
+                   realTime: false, 
+                   tooltip: "always", 
+                   clickable: true,
+                   tooltipDir: "top",
+                   piecewise: false, 
+                   lazy: false,
+                   reverse: false, 
+                   speed: 0.5,
+                   formatter: null, 
+                   bgStyle: null,
+                   sliderStyle: null, 
+                   tooltipStyle: null, 
+                   processStyle: null, 
+                   piecewiseStyle: null 
+                   
+              },
+              components: {
+                   'vueSlider': window['vue-slider-component']
+              }
+         })
+    </script>
+    -->
+    
+    
    <script type="text/javascript" src="js/jquery.min.js"></script>        
    <script type="text/javascript" src="js/libs.min.js"></script>        
    <script type="text/javascript" src="js/main.js"></script>
