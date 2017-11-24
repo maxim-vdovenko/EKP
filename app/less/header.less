@@ -4,6 +4,10 @@
      
      .container-fluid {
           min-height: 66px;
+          
+          @media (max-width: @screen-sm) {
+               min-height: 50px;
+          }
      }
 }
 
@@ -12,11 +16,18 @@
      .inline_block();
      margin-top: 6px;
 
+     @media (max-width: @screen-sm) {
+         margin: 3px 0px; 
+     }
      a {
           .inline_block();
      }
      img {
           .inline_block();
+          
+          @media (max-width: @screen-sm) {
+               width: 45px;
+          }
      }
 }
 

@@ -2,33 +2,91 @@
      .block();
      padding-top: 25px;
      
+     @media (max-width: @screen-md) {
+          padding-bottom: 22px;
+     }
+     
+     &-form {
+          .block();  
+     }
+     
      .container-fluid {
-          padding: 0px @alert-padding;
+          padding: 0px (@alert-padding * 2);
           
-          & > div {
+          .row > div {
                padding-left: 0px;
                padding-right: 0px;
+               
+               @media (max-width: @screen-md) {
+                    margin-bottom: 20px;
+                    
+                    &:last-child {
+                         margin-bottom: 0px;
+                    }
+               }
+          }
+          
+          @media (max-width: @screen-md) {
+               display: block;
+               width: auto;
+               padding: 0px @alert-padding;
           }
      }
      
      .title {
-          margin-bottom: 20px;
+          margin: 0px 0px 20px 0px;
+          
+          @media (max-width: @screen-md) {
+               margin: 0px 0px 20px 0px;
+          }
+     }
+     
+     &-separator {
+          position: absolute;
+          top: 35px;
+          right: -1px;
+          .size(2px, 212px);
+          background-color: #e8e8e8;
+          z-index: 1;
+          
+          @media (max-width: @screen-md) {
+               display: none;
+          }
      }
      
      &-number {
           .block();
           height: 53px;
-          margin-left: 15px;
+          // margin-left: 15px;
+          margin-left: 54px;
           
+          @media (max-width: @screen-lg) {
+               margin-left: 39px;
+          }
+          @media (max-width: @screen-md) {
+               margin-left: 14px;
+          }
+          @media (max-width: @screen-sm) {
+               height: 30px;
+               margin-bottom: 20px;
+          }
           b {
                .tableDis_cell(middle, center);
-               .size(34px, 34px);
                .radius(100px);
-               max-width: 34px;
+               min-width: 34px;
+               height: 34px;
                border: 2px solid #00a99d;
                font-size: 20px;
                font-weight: 400;
                color: #00a99d;
+               padding: 1px 6px 0px 6px;
+               
+               @media (max-width: @screen-sm) {
+                    min-width: 30px;
+                    height: 30px;
+                    padding: 0px 4px 0px 4px;
+                    font-size: 17px;
+               }
           }
           span {
                .tableDis_cell(middle, left);
@@ -37,59 +95,103 @@
                font-size: 14px;
                font-weight: 500;
                color: #00a99d;
+               
+               @media (max-width: @screen-sm) {
+                    width: 200px;
+                    font-size: 12px;
+                    padding: 2px 0px 0px 8px;
+               }
+          }
+     }
+     
+     &-radioBox {
+          .block();
+          padding-bottom: 13px;
+          
+          @media (max-width: @screen-sm) {
+               padding-bottom: 10px;
           }
      }
      
      &-cont, &-box {
           .block();
           min-height: 282px;
+          
+          @media (max-width: @screen-md) {
+               min-height: inherit;
+          }
      }
+     
      &-cont {
           background-color: #f6f6f6;
+          padding: 35px 55px 0px 55px;
+          
+          @media (max-width: @screen-lg) {
+               padding: 35px 40px 0px 40px;
+          }
+          @media (max-width: @screen-md) {
+               padding: 30px 15px 30px 15px;
+          }
      }
+     
      &-box {
           margin-top: 53px;
           padding-left: 30px;
           
+          @media (max-width: @screen-md) {
+               margin-top: 0px;
+               padding: 94px 15px 0px 15px;
+          }
+          @media (max-width: @screen-sm) {
+               padding-top: 70px;
+          }
           &__button {
                position: absolute;
                bottom: 0px;
                left: 0px;
                width: 100%;
                text-align: right;
+               
+               @media (max-width: @screen-md) {
+                    bottom: auto;
+                    top: 0px;
+                    padding: 0px 15px;
+               }
           }
      }
      
-     &-form {
+     &-input {
           .block();
-          max-width: 250px;
-          padding-top: 34px;
-          padding-bottom: 30px;
           
           &__box {
                .block();
+               margin-bottom: 21px;
                
-               input, textarea {
+               &:last-child {
+                    margin-bottom: 0px;
+               }
+               @media (max-width: @screen-md) {
+                    margin-bottom: 12px;
+               }
+               
+               .input-phone, .input-text {
                     .block();
                     .radius(0px);
                     .placeholder(0px, #c0c0c0, inherit);
                     width: 100%;
-                    margin-bottom: 21px;
-                    background-color: #fff;
-                    border: 1px solid #b1b1b1;
                     padding-left: 10px;
                     padding-right: 10px;
                     font-size: 12px;
                     color: #4d4d4d;
                }
-               input {
-                    height: 24px;
+               .input-phone {
+                    height: 30px;
                }
-               textarea {
-                    height: 133px;
+               .input-text {
+                    height: 135px;
                     resize: none;
-                    padding-top: 10px;
-                    padding-bottom: 10px;
+                    padding-top: 8px;
+                    padding-bottom: 8px;
                }
           }
      }
@@ -100,6 +202,10 @@
           padding: 18px 15px 10px 95px;
           background-color: #62ce8b;
           
+          @media (max-width: @screen-sm) {
+               min-height: 64px;
+               padding: 13px 15px 4px 65px;
+          }
           &:before {
                .position(absolute, 23px, 18px, 51px, 51px);
                content: '';
@@ -107,12 +213,24 @@
                background-position: 0px 0px;
                background-repeat: no-repeat;
                background-size: contain;
+               
+               @media (max-width: @screen-sm) {
+                    .position(absolute, 12px, 12px, 40px, 40px);
+               }
           }
           p {
                .block();
                font-size: 12px;
                line-height: 14px;
                color: #fff;
+          }
+     }
+     
+     &-radio {
+          margin: 0px 0px 13px 0px;
+          
+          @media (max-width: @screen-sm) {
+               margin-bottom: 10px;
           }
      }
 }

@@ -1,8 +1,3 @@
-//
-// Tables
-// --------------------------------------------------
-
-
 table {
      background-color: #fff;
 }
@@ -18,38 +13,56 @@ th {
 
 
 
-.table {
+
+.tableBlock {
+     .block();
      .shadow(0px, 1px, 8px, 1px, rgba(0, 0, 0, 0.4));
-     position: relative;
-     display: table;
-     width: 100%;
-     border-collapse: collapse;
      border: 4px solid @table_color_default;
      border-top: none;
      margin-bottom: 6px;
      
-     td {
-          vertical-align: middle;
-          padding-left: 13px;
-          padding-right: 13px; 
+     @media (max-width: @screen-sm) {
+          border-width: 3px;
      }
-    
-     thead td {
-          height: 43px;
+     &__title {
+          .block();
+          min-height: 43px;
           background-color: @table_color_default;
-          padding-top: 4px;
-          padding-bottom: 4px;
+          padding: 4px 15px;
+
+          @media (max-width: @screen-sm) {
+               min-height: 33px;
+               padding: 4px 15px;
+          }
+          @media (max-width: @screen-xs) {
+               padding: 4px 10px;
+          }
           
           b {
-               .inline_block(top, center);
+               //.inline_block(top, center);
                .size(35px, 35px);
                .radius(100px);
-               margin-right: 15px;
+               
+               position: absolute;
+               left: 15px;
                padding-top: 6px;
                background-color: #fff;
                color: #000;
                font-size: 25px;
                font-weight: 700;
+               text-transform: uppercase;
+               text-align: center;
+
+               @media (max-width: @screen-sm) {
+                    .size(26px, 26px);
+                    font-size: 18px;
+                    padding-top: 4px;
+                    left: 13px;
+               }
+               @media (max-width: @screen-xs) {
+                    left: 10px;
+                   // margin-right: 10px;
+               }
           }
           span {
                .inline_block();
@@ -57,70 +70,128 @@ th {
                text-transform: uppercase;
                font-size: 16px;
                font-weight: 500;
-               padding-top: 10px;
-          }
-     }
-     tbody {
-          tr:nth-child(2n + 0) td {
-               background-color: #f1f1f1;
-          }
-          td {
-               height: 49px;               
-               padding: 15px 15px;
-               white-space: nowrap;
-              
-               &:nth-child(1) {
-                    .table_width_1;
-                    color: #4d4d4d;
-                    font-size: 14px;
-                    font-weight: 500;
-                    line-height: 17px;
-                    white-space: normal;
+               line-height: 19px;
+               padding: 9px 0px 5px 50px;
+
+               @media (max-width: @screen-sm) {
+                    font-size: 12px;
+                    line-height: 16px;
+                    padding: 5px 0px 5px 35px;
                }
-               &:nth-child(2) {
-                    .table_width_2;
-                    color: #787878;
-                    font-size: 14px;
-                    text-align: center;
-               }
-               &:nth-child(3) {
-                    .table_width_3;
-                    color: #787878;
-                    font-size: 17px;
-                    font-weight: 700;
-                    text-align: center;
-                    
-                    .rub {
-                         line-height: 14px;
-                    }
-               }
-               &:nth-child(4) {
-                    .table_width_4;
-                    color: #787878;
-                    font-size: 14px;
-                    font-weight: 300;
-                    text-align: center;
-                    
-                    .rub {
-                         line-height: 12px;
-                    }
-               }
-               &:nth-child(5) {
-                    .table_width_5;
-                    color: #787878;
-                    font-size: 14px;
-                    font-weight: 300;
-                    text-align: center;
+               @media (max-width: @screen-xs) {
+                    // width: 250px;
+                    font-size: 10px;
+                    line-height: 14px;
+                    padding: 7px 0px 4px 35px;
                }
           }
-     }
-     
-     .noPrice {
-          background-image: url(../img/table-noPrice.png);
-          
      }
      
      .create_color(); 
+}
+
+
+
+.table {
+     position: relative;
+     display: table;
+     width: 100%;
+     border-collapse: collapse;
+     border-top: none;
+
+     tr:nth-child(2n + 0) td {
+          background-color: #f1f1f1;
+     }
+     
+     td {
+          .transition_Own(background, 0.05s);
+          height: 49px;               
+          padding: 15px 15px;
+          white-space: nowrap;
+          color: #787878;
+          font-size: 14px;
+          font-weight: 300;
+          cursor: pointer;
+          text-align: center;
+
+          .rub {
+               font-weight: 300;
+               line-height: 12px;
+          }
+          
+          @media (max-width: @screen-xs) {
+               height: 36px; 
+          }
+
+          &:nth-child(1) {
+               .table_width_1;
+               color: #4d4d4d;
+               font-weight: 500;
+               line-height: 17px;
+               white-space: normal;
+               text-align: left;
+
+               @media (max-width: @screen-sm) {
+                    font-size: 11px;
+                    line-height: 14px;
+                    padding: 5px 15px;
+               }
+               @media (max-width: @screen-xs) {
+                    font-size: 9px;
+                    line-height: 12px;
+                    padding: 5px 3px 5px 10px;
+               }
+          }
+          &:nth-child(2) {
+               .table_width_2;
+               
+               @media (max-width: @screen-sm) {
+                    display: none;
+               }
+          }
+          &:nth-child(3) {
+               .table_width_3;
+          }
+          &:nth-child(4) {
+               .table_width_4;
+
+               @media (max-width: @screen-sm) {
+                    font-size: 11px;
+                    line-height: 14px;
+               }
+          }
+          &:nth-child(5) {
+               .table_width_5;
+
+               @media (max-width: @screen-sm) {
+                    font-size: 11px;
+                    line-height: 14px;
+               }
+          }
+     }
+     
+     .tab-allotted {
+          font-size: 17px;
+          font-weight: 700;
+          text-align: center;
+
+          .rub {
+               line-height: 14px;
+          }
+
+          @media (max-width: @screen-sm) {
+               font-size: 12px;
+               line-height: 14px;
+
+               .rub {
+                    line-height: 11px;
+               }
+          }
+     }
+
+     .noPrice {
+          background-image: url(../img/table-noPrice.png);
+     }
 }
 
 
@@ -132,17 +203,28 @@ th {
      &--color-@{index} {
           border-color: @color;
 
-          thead td {
+          .tableBlock__title {
                background-color: @color;
 
                b {
                     color: @color;
                }
           }
+          
+          .table tr:hover {
+               // .shadow(0px, 0px, 8px, 0px, rgba(0, 0, 0, 0.4));
+               // z-index: @index;
+          }
+          .table tr:hover td{
+               //background-color: @color;
+               //color: #fff;
+          }
      }
 
      .create_color(@index + 1);
 }
+
+
 
 
 
@@ -205,7 +287,7 @@ th {
 // Placed here since it has to come after the potential zebra striping
 
 .table-hover {
-  > tbody > tr:hover {
+  > tbody > tr:hover td {
     background-color: @table-bg-hover;
   }
 }

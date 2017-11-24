@@ -28,7 +28,8 @@ gulp.task('libs-scripts', function(){
     return gulp.src([
          'app/libs/bootstrap/dist/js/bootstrap.min.js',
          'app/js/bootstrap-select.min.js',
-         'app/js/jquery.scrollbar.min.js'
+         'app/js/jquery.scrollbar.min.js',
+         'app/js/jquery.mask.min.js'
     ])
     .pipe(concat('libs.min.js'))
     .pipe(uglify())

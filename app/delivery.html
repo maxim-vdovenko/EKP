@@ -62,87 +62,108 @@
         <!-- .delivery -->
         <div class="delivery">
             
-             <div class="container-fluid">
-             
-                  <div class="title"><h2>Доставка</h2></div>
-                  
-                  <div class="col-lg-4 col-md-4">
-                       
-                       <div class="delivery-number"><b>1</b><span>Выберите предпочтительный способ доставки:</span></div>
-                       
-                       <div class="delivery-cont">
-                            
-                            
-                            
-                            <div class="select-cont">
+             <form class="delivery-form" method="post">
+                 
+                  <div class="container-fluid">
 
-                                 <div class="select">
-                                      <select class="selectpicker" data-actionsBox="true">
-                                           <option>Выбор города</option>
-                                           <option>Москва</option>
-                                           <option>Самара</option>
-                                           <option>Ярославль</option>
-                                           <option>Санкт-Петербург</option>
-                                           <option>Москва</option>
-                                           <option>Самара</option>
-                                           <option>Ярославль</option>
-                                           <option>Москва</option>
-                                           <option>Самара</option>
-                                           <option>Ярославль</option>
-                                      </select>
+                       <div class="title"><h2>Доставка</h2></div>
+
+                       <div class="row">
+                       
+                            <div class="col-lg-4 col-md-4">
+
+                                 <div class="delivery-number"><b>1</b><span>Выберите предпочтительный способ доставки:</span></div>
+
+                                 <div class="delivery-cont">
+                                      
+                                      <div class="delivery-radioBox" data-toggle="buttons">
+                                      
+                                           <div class="radio delivery-radio">
+                                                <label class="btn btn-radio active"><input type="radio" name="optradio">Заберу самостоятельно</label>
+                                           </div>
+
+                                           <div class="radio delivery-radio">
+                                                <label class="btn btn-radio"><input type="radio" name="optradio">Доставить до города</label>
+                                           </div>
+                                      
+                                      </div>
+                                      
+                                      <div class="select-cont">
+
+                                           <div class="select">
+                                                <select class="selectpicker" data-actionsBox="true">
+                                                     <option>Выбор города</option>
+                                                     <option>Москва</option>
+                                                     <option>Самара</option>
+                                                     <option>Ярославль</option>
+                                                     <option>Санкт-Петербург</option>
+                                                     <option>Москва</option>
+                                                     <option>Самара</option>
+                                                     <option>Ярославль</option>
+                                                     <option>Москва</option>
+                                                     <option>Самара</option>
+                                                     <option>Ярославль</option>
+                                                </select>
+                                           </div>
+
+                                           <div class="select">
+                                                <select class="selectpicker" data-actionsBox="true">
+                                                     <option>Выбор города</option>
+                                                     <option>Ярославль</option>
+                                                     <option>Санкт-Петербург</option>
+                                                     <option>Москва</option>
+                                                     <option>Самара</option>
+                                                     <option>Ярославль</option>
+                                                     <option>Ярославль</option>
+                                                     <option>Москва</option>
+                                                </select>
+                                           </div>
+
+                                      </div>
+
+                                      <div class="delivery-separator"></div>
+                                      
+                                 </div>
+        
+                            </div>
+
+                            <div class="col-lg-4 col-md-4">
+
+                                 <div class="delivery-number"><b>2</b><span>Введите номер телефона и комментарий:</span></div>
+
+                                 <div class="delivery-cont">
+
+                                      <div class="delivery-input">
+                                           <div class="delivery-input__box"><input class="input-phone form-control" type="text" /></div>      
+                                           <div class="delivery-input__box"><textarea class="input-text form-control" placeholder="Оставить свой комментарий"></textarea></div>      
+                                      </div>
+
                                  </div>
 
-                                 <div class="select">
-                                      <select class="selectpicker" data-actionsBox="true">
-                                           <option>Ярославль</option>
-                                           <option>Санкт-Петербург</option>
-                                           <option>Москва</option>
-                                           <option>Самара</option>
-                                           <option>Ярославль</option>
-                                           <option>Ярославль</option>
-                                           <option>Москва</option>
-                                      </select>
+                            </div>
+
+                            <div class="col-lg-4 col-md-4">
+
+                                 <div class="delivery-box">
+
+                                      <div class="delivery-box__button">
+                                           <button class="btn btn-arrowRight">ОФОРМИТЬ ЗАЯВКУ</button>
+                                      </div>
+
+                                      <div class="delivery-inform">
+                                           <p>Постоянный количественный рост и сфера нашей активности способствует подготовки и реализации существенных финансовых и административных условий. </p>
+                                      </div>
+
                                  </div>
-                            
+
                             </div>
-                            
-                            
+                       
                        </div>
                        
-                  </div>
-                  
-                  <div class="col-lg-4 col-md-4">
 
-                       <div class="delivery-number"><b>2</b><span>Введите номер телефона и комментарий:</span></div>
-                       
-                       <div class="delivery-cont">
-
-                            <form class="delivery-form">
-                                 <div class="delivery-form__box"><input type="text" /></div>      
-                                 <div class="delivery-form__box"><textarea placeholder="Введите текст"></textarea></div>      
-                            </form>
-                            
-                       </div>
-                       
-                  </div>
-                  
-                  <div class="col-lg-4 col-md-4">
-
-                       <div class="delivery-box">
-                            
-                            <div class="delivery-box__button">
-                                 <a class="btn btn-arrowRight" href="javascript:void(0)">ОФОРМИТЬ ЗАЯВКУ</a>
-                            </div>
-                            
-                            <div class="delivery-inform">
-                                 <p>Постоянный количественный рост и сфера нашей активности способствует подготовки и реализации существенных финансовых и административных условий. </p>
-                            </div>
-
-                       </div>
-                       
                   </div>
              
-             </div>
+             </form>
              
         </div>
         <!-- END .delivery -->

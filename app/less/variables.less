@@ -1,7 +1,6 @@
 @path_img: '../img/';
 @page_min: 320px; 
 
-
 @screen-const: 1px;
 @fonColor: #fff;
 
@@ -11,6 +10,7 @@
 @conditions_time_open: 0.4s;
 @conditions_time_circle: 0.25s;
 @conditions_color_empty: #e1e1e1;
+
 
 /*
 @screen_lg: @page_max;
@@ -33,23 +33,35 @@
 
 .table_width_1 {
      width: 35%; 
+     
+     @media (max-width: @screen-xs) {
+          width: 67%; 
+     }
 } 
 .table_width_2 {
-     width: 12%; 
+     width: 17%; 
 } 
 .table_width_3 {
-     width: 12%; 
+     width: 16%; 
+     
+     @media (max-width: @screen-xs) {
+          width: 11%; 
+     }
 } 
 .table_width_4 {
-     width: 15%; 
+     width: 16%; 
+     
+     @media (max-width: @screen-xs) {
+          width: 11%; 
+     }
 } 
 .table_width_5 {
-     width: 15%; 
+     width: 16%; 
+     
+     @media (max-width: @screen-xs) {
+          width: 11%; 
+     }
 } 
-
-
-
-
 
 
 
@@ -75,6 +87,3 @@
 @fonts_path: '../fonts/';
 @font_main: sans-serif;
 @font_home: @Ubuntu_Regular;
-
-
-

@@ -7,21 +7,20 @@ window.onload = function(){
     filters.init();
     cart.init();    
     schedule.init();
-   // slid.init();
     
+    dots.init();
     
+    //slid.init();
     
+
     $('.selectpicker').selectpicker({
-        size: 4
+        // size: 4
     });
 
     $('.cartBlock__list').scrollbar();
      
-     //$('.circlestat').circliful();
-     
-     
-     
-     
+    $('.input-phone').mask('+7 (000) 000-00-00', {placeholder: "+7 (___) ___-__-__"});
+ 
 };
 
 
@@ -29,7 +28,9 @@ window.onload = function(){
 
 /* page ---------------------------------------*/
 var page = {
-     x: 0
+     x: 0,
+     screen_md: 992,
+     screen_sm: 768
 };
 
 page.init = function(){
@@ -45,7 +46,13 @@ page.init = function(){
 page.events = function(){
      this.x = window.innerWidth;
 
-     if(this.x > 768){
+     if(this.x > this.screen_md){
+          filters.desktop();
+     }else{
+
+     } 
+     
+     if(this.x > this.screen_sm){
        
      }else{
         
@@ -62,6 +69,10 @@ var filters = {
     box: '.filters__box',
     button: '.filters__box > span',
     list: '.filters__box > ul',
+    
+    filt: '.filters',
+    filtButton: '.filters__title',
+    filtCont: '.filters__cont',
     tim: 250
 };
 
@@ -84,6 +95,31 @@ filters.events = function(){
             $(this).parents(filters.box).find(' > ul').slideDown(filters.tim);
         }
     });
+     
+    $('body').on('click', this.filtButton + ' b', function(event){
+        
+        if(page.x < page.screen_md){
+            
+            if($(this).parent().hasClass(filters.active)){
+               
+                $(this).parent().removeClass(filters.active);
+                $(this).parents(filters.filt).find(filters.filtCont).slideUp(filters.tim);
+            }else{
+                
+                $(this).parent().addClass(filters.active);
+                $(this).parents(filters.filt).find(filters.filtCont).slideDown(filters.tim);
+            }
+        }
+    });   
+};
+
+filters.desktop = function(){
+     $(this.filtButton).removeClass(filters.active);
+     $(this.filtCont).removeAttr('style');
+};
+
+filters.mobile = function(){
+
 };
 
 
@@ -112,9 +148,12 @@ table.events = function(){
 };
 
 table.sticking = function(){
-    var x = null, h = null;
+    var x = null, 
+        h = null;
+     
+    if(!$(this.head).length) return;
     
-    $(window).on('scroll', this.button, function(event){
+    $(window).on('scroll', function(event){
         table.head_height();
         
         x = $(table.head).offset().top;
@@ -130,8 +169,8 @@ table.sticking = function(){
 
 table.header = function(){
     var td = $('.product .table').eq(0);
-    $(table.head + ' tr:nth-child(1) td:nth-child(1)').width(td.find('tbody tr:first-child td:nth-child(1)').outerWidth() + 1);
-    $(table.head + ' tr:nth-child(1) td:nth-child(2)').width(td.find('tbody tr:first-child td:nth-child(2)').outerWidth());
+    $(table.head + ' tr:nth-child(1) td:nth-child(1)').width(td.find('tbody tr:first-child td:nth-child(1)').outerWidth() + 4);
+    $(table.head + ' tr:nth-child(1) td:nth-child(2)').width(td.find('tbody tr:first-child td:nth-child(2)').outerWidth() + 1);
     $(table.head + ' tr:nth-child(2) td:nth-child(1)').width(td.find('tbody tr:first-child td:nth-child(3)').outerWidth());
     $(table.head + ' tr:nth-child(2) td:nth-child(2)').width(td.find('tbody tr:first-child td:nth-child(4)').outerWidth());
     $(table.head + ' tr:nth-child(2) td:nth-child(3)').width(td.find('tbody tr:first-child td:nth-child(5)').outerWidth());  
@@ -238,6 +277,39 @@ schedule.circleInit = function(th, init){
 
 
 
+/* dots ---------------------------------------*/
+var dots = {
+    cartTable: ['.cart-table tbody td:nth-child(1)', 40],
+    prodTable: ['.product .table tbody td:nth-child(1)', 30]
+};
+
+dots.init = function(){
+    
+    $(this.cartTable[0]).each(function() {
+        dots.act($(this), dots.cartTable[1]);
+    });
+     
+    $(this.prodTable[0]).each(function() {
+        dots.act($(this), dots.prodTable[1]);
+    });
+};
+
+dots.act = function(th, siz){
+    var text = $(th).text(), textClone = '';
+    
+    if(text.length < siz) return;
+    
+    for(i=0; i<siz; i++){
+        textClone += text[i];
+    }
+    textClone += '...';
+    
+    $(th).text(textClone);
+};
+
+
+
+
 /* slid ---------------------------------------*/
 var slid = {
     bl: '.vueSlider',
@@ -249,17 +321,11 @@ slid.init = function(){
     
     this.v = new Vue({
         el: slid.bl,
-         
-        data () {
-            return {
-               
-            }
-        },
         data: {
             direction: "horizontal", 
             value: 20,
             min: 0,
-            max: 400,
+            max: 100,
             eventType: "auto", 
             formatter: '¥{value}',
             speed: 0.5,
@@ -267,36 +333,7 @@ slid.init = function(){
             sliderStyle: null, 
             tooltipStyle: null, 
             processStyle: null, 
-            piecewiseStyle: null
-            
-            /*
-            value: 20,
-            width: "auto",
-            height: 0,
-            direction: "horizontal", 
-            dotSize: 16,
-            eventType: "auto", 
-            min: 0,
-            max: 100,
-            interval: 1,
-            disabled: false,
-            show: true,
-            realTime: false, 
-            tooltip: "always", 
-            clickable: true,
-            tooltipDir: "top",
-            piecewise: false, 
-            lazy: false,
-            reverse: false, 
-            speed: 0.5,
-            formatter: "¥${v}", 
-            bgStyle: null,
-            sliderStyle: null, 
-            tooltipStyle: null, 
-            processStyle: null, 
-            piecewiseStyle: null,
-             */
-             
+            piecewiseStyle: null 
         },
         components: {
             'vueSlider': window['vue-slider-component']
@@ -307,11 +344,19 @@ slid.init = function(){
             }
         }
     });
-    
 };
 
 slid.reset = function(){
     this.v.reset();
 };
+
+
+
+
+
+
+
+
+
 
 

@@ -5,24 +5,52 @@
      width: 100%;
      min-height: 252px;
      margin-top: 85px;
-     
-
+    
+     @media (max-width: @screen-xs) {
+          .inline_block();
+          width: 100%;
+     }
      &__cont {
           .transition_Own(width, @conditions_time_open);
           .inline_block();
           padding: 0px 8px;
 
-          
           &:nth-child(1) {
                width: 31%;
+               
+               @media (max-width: @screen-xs) {
+                    display: block;
+                    width: 100%;
+                    max-width: 220px;
+                    height: 320px;
+                    margin: 0px auto;
+               }
+               @media (max-width: 380px) {
+                    max-width: 180px;
+               }
           }
           &:nth-child(2) {
                width: 38%;
+               
+               @media (max-width: @screen-xs) {
+                    display: block;
+                    float: left;
+                    width: 50%;
+                    height: 252px;
+                    padding-right: 5px;
+               }
           }
           &:nth-child(3) {
                width: 31%;
+               
+               @media (max-width: @screen-xs) {
+                    display: block;
+                    float: left;
+                    width: 50%;
+                    height: 252px;
+                    padding-left: 5px;
+               }
           }
-          
           
           &:first-child {
                padding-left: 0px;
@@ -31,6 +59,9 @@
                padding-right: 0px;
           } 
           
+          @media (max-width: @screen-xs) {
+               padding: 0px 0px;
+          }
           
           &--popular {
                
@@ -131,6 +162,9 @@
                     .shadow(0px, 4px, 10px, 0px, rgba(0,0,0, .2));
                     height: 252px;
                     
+                    &:before {
+                         border-color: #62ab9a;
+                    }
                     &__main { 
                          
                          &:before {
@@ -294,7 +328,7 @@
           
           &:hover {
                &:before {
-                    // border-color: #62ce8b;
+                    border-color: #62ce8b;
                }
           }
      }

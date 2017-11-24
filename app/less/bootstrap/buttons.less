@@ -5,7 +5,6 @@
 
 // Base styles
 // --------------------------------------------------
-
 .btn {
      .inline_block();
      .transition_Own(background);
@@ -53,27 +52,23 @@
           }
      }
      
-     input& {
+     input&, button& {
           padding-top: 0px!important;
      }
      
 }
 
 
-
-/* Alternate buttons ------------------------- */
-.btn-default {
-     .inline_block();
-     .radius(0px);
-     .box-shadow(none)!important;
-     min-height: 44px;
-     padding: 14px 15px 12px 15px;
-     background-color: #009187;
-     color: #fff!important;
-     font-size: 14px;
-     text-transform: uppercase;
+.btn_mobile {
+     min-height: 32px;
+     font-size: 10px;
+     
+     input&, button& {
+          padding-top: 1px!important;
+     }
 }
 
+/* Alternate buttons ------------------------- */
 /*
 .btn-primary {
   .button-variant(@btn-primary-color; @btn-primary-bg; @btn-primary-border);
@@ -106,7 +101,7 @@
      text-transform: uppercase;  
 }
 .btn-conditions {
-     background-color: #01a99d;
+     background-color: @btn;
      
      &:hover {
           background-color: @btn-hover;
@@ -127,7 +122,7 @@
      .box-shadow(none)!important;
      min-height: 26px;
      padding: 8px 20px 4px 20px;
-     background-color: #01a99d;
+     background-color: @btn;
      color: #fff!important;
      font-size: 10px;
      font-weight: 300;
@@ -158,10 +153,20 @@
           background-repeat: no-repeat;
      }
      &:hover {
-          background-color: @btn-hover;
+          background-color: #8bcd8d;
      }
      &:active {
-          background-color: @btn-active;
+          background-color: #4d9b6a;
+     }
+     
+     @media (max-width: @screen-sm) {
+          .btn_mobile();
+          padding: 11px 13px 0px 32px;
+
+          &:before {
+               .position(absolute, 10px, 9px, 13px, 12px);
+               background-position: -500px -100px;
+          }
      }
 }
 
@@ -184,7 +189,7 @@
      }
 }
 
-.btn-cartClose {
+.btn-cartClose, .btn-cartCloseMin {
      .inline_block();
      .radius(100px);
      .size(24px, 24px);
@@ -213,6 +218,24 @@
      &:hover {
           background-color: @btn-cartClose-active;
      }
+     &:active {
+          background-color: @btn-cartClose-active;
+     }
+}
+
+.btn-cartCloseMin {
+     
+     @media (max-width: @screen-sm) {
+          .size(15px, 15px);
+          padding-top: 6px;
+
+          &:after, &:before {
+               .size(9px, 1px);
+          }
+          &:after {
+               margin-top: -1px;
+          }
+     }
 }
 
 .btn-cartClear {
@@ -240,11 +263,20 @@
      
      &:hover {
           opacity: 1;
-          //background-color: #f2f2f2;
      }
      &:active {
           border-color: #606060;
           color: #606060!important;
+     }
+     
+     @media (max-width: @screen-sm) {
+          .btn_mobile();
+          padding: 10px 13px 0px 26px;
+
+          &:before {
+               .position(absolute, 9px, 8px, 9px, 12px);
+               background-position: -600px -100px;
+          }
      }
 }
 
@@ -279,6 +311,20 @@
      &:active {
           background-color: @btn-active;
      }
+     
+     @media (max-width: @screen-sm) {
+          .btn_mobile();
+          height: 35px;
+          font-size: 14px;
+          padding: 9px 20px 0px 35px;
+          
+          &:before {
+               left: 16px;
+          }
+          &:after {
+               left: 12px;
+          }
+     }
 }
 
 .btn-arrowRight {
@@ -305,13 +351,91 @@
      &:active {
           background-color: @btn-active;
      }
+     
+     @media (max-width: @screen-sm) {
+          .btn_mobile();
+          padding: 11px 25px 0px 13px;
+          
+          &:after {
+               top: 10px;
+               right: 8px;
+               background-position: -300px -100px;
+          }
+     }
 }
 
+.btn-radio {
+     .inline_block();
+     cursor: pointer;
+     outline: none; 
+     color: #4d4d4d;
+     font-weight: 400;
+     font-size: 14px;
+     margin-bottom: 0px;
+     padding: 2px 0px 0px 26px!important;
+     text-transform: none;
+     
+     @media (max-width: @screen-xs) {
+          font-size: 12px;
+          padding: 2px 0px 0px 23px!important;
+     }
+     input[type="checkbox"], input[type="radio"] {
+          position: absolute;
+          clip: rect(0, 0, 0, 0);
+          pointer-events: none;
+     }
+     &:before {
+          .position(absolute, 0px, 0px, 18px, 18px);
+          .radius(1000px); 
+          border: 2px solid #2d3130;
+          content: '';
+          cursor: pointer;
 
+          @media (max-width: @screen-xs) {
+               .size(15px, 15px);
+          }
+     }
+     &:after {
+          .position(absolute, 4px, 4px, 10px, 10px);
+          .radius(1000px); 
+          background-color: #2d3130;
+          display: none;
+          content: '';
+          cursor: pointer;
+          
+          @media (max-width: @screen-xs) {
+               .position(absolute, 4px, 4px, 7px, 7px);
+          }
+     }
+     &.active:after {
+          display: block;
+     }
+}
 
+.btn-default {
+     .inline_block();
+     .radius(0px);
+     .box-shadow(none)!important;
+     min-height: 44px;
+     padding: 14px 15px 0px 15px;
+     background-color: #009187;
+     color: #fff!important;
+     font-size: 14px;
+     text-transform: uppercase;
+}
 
-
-
+.btn-off {
+     .inline_block();
+     .radius(0px);
+     .box-shadow(none)!important;
+     min-height: 44px;
+     padding: 14px 15px 0px 15px;
+     background-color: #d6dadb;
+     color: #fff!important;
+     font-size: 14px;
+     text-transform: uppercase;
+     cursor: default;
+}
 
 
 
