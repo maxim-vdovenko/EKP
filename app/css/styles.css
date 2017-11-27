@@ -10284,7 +10284,7 @@ span.tabHeader__title {
     margin-left: 10px;
   }
 }
-.filters__title b {
+.filters__title-button {
   position: relative;
   display: inline-block;
   vertical-align: top;
@@ -10296,25 +10296,25 @@ span.tabHeader__title {
   letter-spacing: 1px;
 }
 @media (max-width: 992px) {
-  .filters__title b {
+  .filters__title-button {
     padding-right: 15px;
     cursor: pointer;
     font-size: 14px;
     color: #787878;
   }
-  .filters__title b:before,
-  .filters__title b:after {
+  .filters__title-button:before,
+  .filters__title-button:after {
     position: absolute;
     content: '';
     background-color: #787878;
   }
-  .filters__title b:before {
+  .filters__title-button:before {
     width: 8px;
     height: 2px;
     right: 0px;
     top: 6px;
   }
-  .filters__title b:after {
+  .filters__title-button:after {
     width: 2px;
     height: 8px;
     right: 3px;
@@ -10332,21 +10332,20 @@ span.tabHeader__title {
 }
 @media (max-width: 992px) {
   .filters__cont {
-    position: absolute;
     display: none;
-    margin-top: 0px;
-    top: 55px;
-    left: 0px;
-    width: 100%;
+    width: auto;
     height: auto;
-    z-index: 1000;
     background-color: #fff;
-    padding: 20px 0px 15px 0px;
+    margin-top: 0px;
+    padding: 0px 0px 10px 0px;
+    clear: both;
   }
-}
-@media (max-width: 768px) {
-  .filters__cont {
-    top: 40px;
+  .filters__cont:before {
+    position: relative;
+    display: block;
+    text-align: left;
+    content: '';
+    height: 30px;
   }
 }
 .filters__box {
@@ -10357,7 +10356,10 @@ span.tabHeader__title {
 .filters__box:last-child {
   margin-bottom: 0px;
 }
-.filters__box > span {
+.filters__box:last-child .filters__box-list {
+  padding-bottom: 0px;
+}
+.filters__box-title {
   position: relative;
   display: inline-block;
   vertical-align: top;
@@ -10371,7 +10373,7 @@ span.tabHeader__title {
   cursor: pointer;
   margin-bottom: 17px;
 }
-.filters__box > span:before {
+.filters__box-title:before {
   position: absolute;
   top: 4px;
   left: 0px;
@@ -10388,22 +10390,22 @@ span.tabHeader__title {
   background-repeat: no-repeat;
 }
 @media (max-width: 992px) {
-  .filters__box > span {
+  .filters__box-title {
     margin-left: 15px;
   }
 }
-.filters__box ul {
+.filters__box-list {
   position: relative;
   display: block;
   text-align: left;
-  padding: 0px 0px 10px 30px;
+  padding: 0px 0px 22px 30px;
 }
 @media (max-width: 992px) {
-  .filters__box ul {
-    padding: 0px 0px 10px 37px;
+  .filters__box-list {
+    padding: 0px 0px 22px 37px;
   }
 }
-.filters__box li {
+.filters__box-list li {
   position: relative;
   display: block;
   text-align: left;
@@ -10412,7 +10414,10 @@ span.tabHeader__title {
   padding-bottom: 12px;
   line-height: 16px;
 }
-.filters__box li a {
+.filters__box-list li:last-child {
+  padding-bottom: 0px;
+}
+.filters__box-list li a {
   position: relative;
   display: inline-block;
   vertical-align: top;
@@ -10422,11 +10427,11 @@ span.tabHeader__title {
   line-height: inherit;
   text-decoration: none;
 }
-.filters__box li a:hover {
+.filters__box-list li a:hover {
   text-decoration: underline;
 }
-.filters__box li span,
-.filters__box li a {
+.filters__box-list li span,
+.filters__box-list li a {
   position: relative;
   display: inline;
   text-align: left;
@@ -10434,7 +10439,7 @@ span.tabHeader__title {
   font-size: 13px;
   line-height: 16px;
 }
-.filters__box li b {
+.filters__box-list li b {
   position: relative;
   display: inline;
   text-align: left;
@@ -10444,7 +10449,7 @@ span.tabHeader__title {
   line-height: inherit;
   margin-left: 5px;
 }
-.filters__box.active > span:before {
+.filters__box.active .filters__box-title:before {
   -webkit-transform: rotate(180deg);
   -moz-transform: rotate(180deg);
   -ms-transform: rotate(180deg);

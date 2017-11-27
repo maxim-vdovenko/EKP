@@ -1,5 +1,4 @@
-$(document).ready(function(){ /* ... */ });
-
+// Первичная инициализация всех функций объектов, после полной загрузки страницы. 
 window.onload = function(){
      
     page.init();
@@ -7,32 +6,32 @@ window.onload = function(){
     filters.init();
     cart.init();    
     schedule.init();
-    
     dots.init();
     
-    //slid.init();
-    
-
-    $('.selectpicker').selectpicker({
-        // size: 4
-    });
+     
+        
+    $('.selectpicker').selectpicker();
 
     $('.cartBlock__list').scrollbar();
      
     $('.input-phone').mask('+7 (000) 000-00-00', {placeholder: "+7 (___) ___-__-__"});
- 
 };
 
 
 
 
 /* page ---------------------------------------*/
+/*
+Объект page нужен для отслеживания ширины страницы браузера. 
+Ширина записуется в переменную свойства x. 
+*/
 var page = {
      x: 0,
      screen_md: 992,
      screen_sm: 768
 };
 
+// Инициализация.
 page.init = function(){
      page.events();
      table.header();
@@ -43,32 +42,31 @@ page.init = function(){
      });
 };
 
+// События.
 page.events = function(){
      this.x = window.innerWidth;
 
      if(this.x > this.screen_md){
-          filters.desktop();
-     }else{
-
-     } 
-     
-     if(this.x > this.screen_sm){
-       
-     }else{
-        
-     } 
+          filters.desktop(); 
+     }
 };
 
 
 
 
 /* filters ------------------------------------*/
+/*
+   Фильтры на главной. 
+*/
 var filters = {
     active: 'active',
     bl: '.filters',
+    
+    titleButton: '.filters__title-button',
+    
     box: '.filters__box',
-    button: '.filters__box > span',
-    list: '.filters__box > ul',
+    button: '.filters__box-title', 
+    list: '.filters__box-list',
     
     filt: '.filters',
     filtButton: '.filters__title',
@@ -76,11 +74,13 @@ var filters = {
     tim: 250
 };
 
+// Инициализация.
 filters.init = function(){
      
      this.events();
 };
 
+// События.
 filters.events = function(){
      
     $('body').on('click', this.button, function(event){
@@ -96,7 +96,7 @@ filters.events = function(){
         }
     });
      
-    $('body').on('click', this.filtButton + ' b', function(event){
+    $('body').on('click', this.titleButton, function(event){
         
         if(page.x < page.screen_md){
             
@@ -113,19 +113,19 @@ filters.events = function(){
     });   
 };
 
+// При возвращении к декстопной ширине у блока с фильтрами убирается class="active" и свойство style. 
 filters.desktop = function(){
      $(this.filtButton).removeClass(filters.active);
      $(this.filtCont).removeAttr('style');
-};
-
-filters.mobile = function(){
-
 };
 
 
 
 
 /* table --------------------------------------*/
+/*
+   Таблицы на главной странице. 
+*/
 var table = {    
     fix: 'fix',    
     active: 'active',
@@ -138,15 +138,13 @@ var table = {
     headCont: '.tabHeader__cont'
 };
 
+// Инициализация.
 table.init = function(){
   
     this.sticking();
 };
 
-table.events = function(){
-                  
-};
-
+// Прилипание к верху страницы блока ".tabHeader"
 table.sticking = function(){
     var x = null, 
         h = null;
@@ -167,6 +165,7 @@ table.sticking = function(){
     });
 };
 
+// Определение ширины для тегов td таблицы ".tabHeader". Значение беруться из таблиц значений ".tableBlock .table"
 table.header = function(){
     var td = $('.product .table').eq(0);
     $(table.head + ' tr:nth-child(1) td:nth-child(1)').width(td.find('tbody tr:first-child td:nth-child(1)').outerWidth() + 4);
@@ -185,6 +184,9 @@ table.head_height = function(){
 
 
 /* cart ---------------------------------------*/
+/*
+   Корзина на главной. 
+*/
 var cart = {
     title: '.cartBlock__title b',
     list: '.cartBlock__list',
@@ -194,15 +196,18 @@ var cart = {
 cart.init = function(){
     cart.quantity();
     
+    // Событие изменения содержимого блока. 
     $('body').on('DOMSubtreeModified', this.list, function(event){
         cart.quantity();
     });
     
+    // Удаление товара из корзины при клике. 
     $('body').on('click', this.list + ' .btn-cartClose', function(event){
         $(this).parents('ul').remove();
     });
 };
 
+// Количество товаров. 
 cart.quantity = function(){
     var siz = $(this.listUl).length;
     $(this.title).text(siz);
@@ -212,6 +217,9 @@ cart.quantity = function(){
 
 
 /* schedule -----------------------------------*/
+/*
+   Это объект для круговых графиков. 
+*/
 var schedule = {
     active: 'active',
     modal: '#product',
@@ -226,21 +234,24 @@ var schedule = {
 schedule.init = function(){
 
     this.events();
-    this.distribution();
 };
 
+// Обработка событий
 schedule.events = function(){
     
+    // Стандартные bootstrap события открытия/закрытия окон. 
     $('body').on('shown.bs.modal', this.modal, function(event){
         slid.init();
     });
     
+    // Стандартные bootstrap события открытия/закрытия окон. 
     $('body').on('shown.bs.modal', this.modal, function(event){
         schedule.circleInit(schedule.average, true);
         schedule.circleInit(schedule.popular, true);
         schedule.circleInit(schedule.junior, true);
     });
 
+    // Стандартные bootstrap события открытия/закрытия окон.  
     $('body').on('hidden.bs.modal', this.modal, function(event){
         schedule.circleInit(schedule.average, false);
         schedule.circleInit(schedule.popular, false);
@@ -258,10 +269,7 @@ schedule.events = function(){
     });
 };
 
-schedule.distribution = function(){
-     
-};
-
+// Инициализация и удаления графика (круга) в модальном окне. 
 schedule.circleInit = function(th, init){
     
     var v = 0;
@@ -278,22 +286,31 @@ schedule.circleInit = function(th, init){
 
 
 /* dots ---------------------------------------*/
+/*
+Объект dots для обрезания строк по их количеству. 
+Р.S. 
+  1) Лучше формировать сроки на сервере и отдавать уже с троеточием. 
+  2) Метод с CSS троеточием не очень хорош (если строк много). 
+*/
 var dots = {
-    cartTable: ['.cart-table tbody td:nth-child(1)', 40],
+    cartTable: ['.cart-table tbody td:nth-child(1)', 40],     // Массив. 1: Класс блока с текстом, 2: количество символов.  
     prodTable: ['.product .table tbody td:nth-child(1)', 30]
 };
 
 dots.init = function(){
-    
+       
+    // Перебераем все слассы для переменной cartTable.       
     $(this.cartTable[0]).each(function() {
         dots.act($(this), dots.cartTable[1]);
     });
      
+    // Перебераем все слассы для переменной prodTable. 
     $(this.prodTable[0]).each(function() {
         dots.act($(this), dots.prodTable[1]);
     });
 };
 
+// Функция обрезки строки. 
 dots.act = function(th, siz){
     var text = $(th).text(), textClone = '';
     
@@ -311,6 +328,11 @@ dots.act = function(th, siz){
 
 
 /* slid ---------------------------------------*/
+/*
+  Инициализация vue ползунка. 
+  Построен на виджете "vue-slider-component".
+  Стилизация через less. Файл less/vueSlider.less  
+*/
 var slid = {
     bl: '.vueSlider',
     v: null
@@ -349,14 +371,5 @@ slid.init = function(){
 slid.reset = function(){
     this.v.reset();
 };
-
-
-
-
-
-
-
-
-
 
 

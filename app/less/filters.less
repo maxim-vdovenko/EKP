@@ -22,7 +22,8 @@
           @media (max-width: @screen-xs) {
                margin-left: 10px;
           }
-          b {
+          
+          &-button {
                .inline_block();
                color: #4d4d4d;
                font-size: 15px;
@@ -66,19 +67,20 @@
           margin-top: 24px;
 
           @media (max-width: @screen-md) {
-               position: absolute;
                display: none;
-               margin-top: 0px;
-               top: 55px;
-               left: 0px;
-               width: 100%;
+               width: auto;
                height: auto;
-               z-index: 1000;
+               
                background-color: #fff;
-               padding: 20px 0px 15px 0px;
-          }
-          @media (max-width: @screen-sm) {
-               top: 40px;
+               margin-top: 0px;
+               padding: 0px 0px 10px 0px;
+               clear: both;
+               
+               &:before {
+                    .block();
+                    content: '';
+                    height: 30px;
+               }
           }
      }
      
@@ -87,8 +89,13 @@
           
           &:last-child {
                margin-bottom: 0px;
+               
+               .filters__box-list {
+                    padding-bottom: 0px;
+               }
           }
-          > span {
+          
+          &-title {
                .inline_block();
                color: #4d4d4d;
                font-size: 13px;
@@ -111,57 +118,63 @@
                     margin-left: 15px;
                }
           }
-          ul {
+          
+          &-list {
                .block();
-               padding: 0px 0px 10px 30px;
-               //display: none;
+               padding: 0px 0px 22px 30px;
                
                @media (max-width: @screen-md) {
-                    padding: 0px 0px 10px 37px;
+                    padding: 0px 0px 22px 37px;
                }
-          }
-          li {
-               .block();
-               color: #787878;
-               font-size: 13px;
-               padding-bottom: 12px;
-               line-height: 16px;
                
-               a {
-                    .inline_block();
-                    color: inherit;
-                    font-size: inherit;
-                    line-height: inherit;
-                    text-decoration: none;
-                    
-                    &:hover {
-                         text-decoration: underline;
-                    }
-               }
-               span, a {
-                    .inline();
+               li {
+                    .block();
                     color: #787878;
                     font-size: 13px;
+                    padding-bottom: 12px;
                     line-height: 16px;
-               }
-               b {
-                    .inline();
-                    color: #a3a3a3;
-                    font-size: 11px;
-                    font-weight: 300;
-                    line-height: inherit;
-                    margin-left: 5px;
+
+                    &:last-child {
+                         padding-bottom: 0px;
+                    }
+                    
+                    a {
+                         .inline_block();
+                         color: inherit;
+                         font-size: inherit;
+                         line-height: inherit;
+                         text-decoration: none;
+
+                         &:hover {
+                              text-decoration: underline;
+                         }
+                    }
+                    span, a {
+                         .inline();
+                         color: #787878;
+                         font-size: 13px;
+                         line-height: 16px;
+                    }
+                    b {
+                         .inline();
+                         color: #a3a3a3;
+                         font-size: 11px;
+                         font-weight: 300;
+                         line-height: inherit;
+                         margin-left: 5px;
+                    }
                }
           }
           
           &.active {
                
-               > span:before {
+               .filters__box-title:before {
                     .rotate(180deg);
                }
-               ul {
+               .filters__box-list {
                     
                }
           }
      }
 }
+
