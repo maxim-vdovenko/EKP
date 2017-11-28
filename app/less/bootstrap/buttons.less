@@ -412,6 +412,30 @@
      }
 }
 
+.btn-standard {
+     .inline_block();
+     .radius(0px);
+     .box-shadow(none)!important;
+     min-height: 44px;
+     padding: 14px 15px 0px 15px;
+     background-color: #009187;
+     color: #fff!important;
+     font-size: 14px;
+     text-transform: uppercase;
+     
+     &:hover {
+          background-color: @btn-hover;
+     }
+     &:active {
+          background-color: @btn-active;
+     }
+     
+     @media (max-width: @screen-sm) {
+          .btn_mobile();
+          padding: 11px 15px 0px 15px;
+     }
+}
+
 .btn-default {
      .inline_block();
      .radius(0px);

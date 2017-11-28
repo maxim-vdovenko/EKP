@@ -9,11 +9,13 @@ window.onload = function(){
     dots.init();
     
      
-        
+    // Стилизованный select     
     $('.selectpicker').selectpicker();
 
+    // Стилизованный scrollbar в корзина га главной.     
     $('.cartBlock__list').scrollbar();
      
+    // mask на телефоне. 
     $('.input-phone').mask('+7 (000) 000-00-00', {placeholder: "+7 (___) ___-__-__"});
 };
 
@@ -96,6 +98,7 @@ filters.events = function(){
         }
     });
      
+    // Открытие фильтров на мобильных устройствах. Кнопка .filters__title-button       
     $('body').on('click', this.titleButton, function(event){
         
         if(page.x < page.screen_md){
