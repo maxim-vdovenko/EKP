@@ -29,8 +29,8 @@ window.onload = function(){
 */
 var page = {
      x: 0,
-     screen_md: 992,
-     screen_sm: 768
+     screen_md: 992, // 992
+     screen_sm: 767  // 768
 };
 
 // Инициализация.
@@ -48,7 +48,7 @@ page.init = function(){
 page.events = function(){
      this.x = window.innerWidth;
 
-     if(this.x > this.screen_md){
+     if(this.x >= this.screen_md){
           filters.desktop(); 
      }
 };

@@ -7,10 +7,17 @@
 @radius: 5px;
 @time: 0.15s;
 
+
+// Размеры для @media. 
+@screen_lg: (@screen-lg - 1);
+@screen_md: (@screen-md - 1);
+@screen_sm: (@screen-sm - 1);
+@screen_xs: (@screen-xs - 1);
+
+
 @conditions_time_open: 0.4s;
 @conditions_time_circle: 0.25s;
 @conditions_color_empty: #e1e1e1;
-
 
 
 // Высота блока корзины на главной странице.  
@@ -25,7 +32,7 @@
 .table_width_1 {
      width: 35%; 
      
-     @media (max-width: @screen-xs) {
+     @media (max-width: @screen_xs) {
           width: 67%; 
      }
 } 
@@ -35,21 +42,21 @@
 .table_width_3 {
      width: 16%; 
      
-     @media (max-width: @screen-xs) {
+     @media (max-width: @screen_xs) {
           width: 11%; 
      }
 } 
 .table_width_4 {
      width: 16%; 
      
-     @media (max-width: @screen-xs) {
+     @media (max-width: @screen_xs) {
           width: 11%; 
      }
 } 
 .table_width_5 {
      width: 16%; 
      
-     @media (max-width: @screen-xs) {
+     @media (max-width: @screen_xs) {
           width: 11%; 
      }
 } 
